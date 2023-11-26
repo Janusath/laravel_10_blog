@@ -67,7 +67,7 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate action="{{route('admin_register_user')}}" method="POST">
+                  <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('admin_register_user') }}">
                     @csrf
                     <!-- Add this script at the end of your Blade file -->
                 @if(Session::has('sweet_alert'))
@@ -85,17 +85,17 @@
                 </script>
                 {{ Session::forget('sweet_alert') }}
                 @endif
-                    <div class="col-md-6">
-                      <label for="firstName" class="form-label">First Name</label>
-                      <input type="text" name="firstName" class="form-control" id="firstName" required>
-                      <div class="invalid-feedback">Please, enter First Name!</div>
-                    </div>
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" name="firstName" class="form-control" id="firstName" required autocomplete="given-name">
+                    <div class="invalid-feedback">Please, enter First Name!</div>
+                </div>
 
-                    <div class="col-md-6">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" name="lastName" class="form-control" id="lastName" required>
-                        <div class="invalid-feedback">Please, enter your Last Name!</div>
-                      </div>
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" name="lastName" class="form-control" id="lastName" required autocomplete="family-name">
+                    <div class="invalid-feedback">Please, enter your Last Name!</div>
+                </div>
 
                       <div class="col-md-6">
                         <label for="fullName" class="form-label">Full Name</label>
@@ -104,25 +104,24 @@
                       </div>
 
                       <div class="col-md-6">
-                        <label for="username" class="form-label"> user Name</label>
-                        <input type="text" name="userName" class="form-control" id="username" required>
-                        <div class="invalid-feedback">Please enter  userName!</div>
-                      </div>
+                        <label for="username" class="form-label">User Name</label>
+                        <input type="text" name="userName" class="form-control" id="username" required autocomplete="username">
+                        <div class="invalid-feedback">Please enter your username!</div>
+                    </div>
 
-                      <div class="col-md-6">
+                    <div class="col-md-6">
                         <label for="Email" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" id="Email" required>
+                        <input type="email" name="email" class="form-control" id="Email" required autocomplete="email">
                         @error('email')
                         <div class="mt-2 text-danger">{{ $message }}</div>
                         @enderror
-                        <div class="invalid-feedback">Please enter a valid Email adddress!</div>
-                      </div>
-
+                        <div class="invalid-feedback">Please enter a valid Email address!</div>
+                    </div>
 
                       <div class="col-md-6">
                         <label for="Password" class="form-label">Password</label>
                         <div class="input-group input-group-merge">
-                            <input type="password" name="password" class="form-control" id="Password" required>
+                            <input type="password" name="password" class="form-control" id="Password" required autocomplete="new-password">
                             <span class="input-group-text cursor-pointer toggle-password" data-target="Password"><i class="bx bx-hide"></i></span>
                         </div>
                         <div class="invalid-feedback">Please enter your password!</div>
@@ -131,11 +130,13 @@
                     <div class="col-md-6">
                         <label for="ConfirmPassword" class="form-label">Confirm Password</label>
                         <div class="input-group input-group-merge">
-                            <input type="password" name="confirmPassword" class="form-control" id="ConfirmPassword" required>
+                            <input type="password" name="password_confirmation" class="form-control" id="ConfirmPassword" required autocomplete="new-password">
                             <span class="input-group-text cursor-pointer toggle-password" data-target="ConfirmPassword"><i class="bx bx-hide"></i></span>
                         </div>
                         <div class="invalid-feedback">Please confirm your password!</div>
                     </div>
+
+
 
                     {{-- <div class="col-12">
                       <div class="form-check">

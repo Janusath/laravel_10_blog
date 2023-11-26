@@ -28,7 +28,7 @@ class EntrepreneurUserController extends Controller
         // If validation fails, redirect back with error messages and input data
         if ($validator->fails()) {
             return redirect()->route('entrepreneur_register')->withErrors($validator)->withInput();
-      
+
         }
 
         $registerData =$request->all() ;
@@ -37,6 +37,11 @@ class EntrepreneurUserController extends Controller
         return view('entrepreneur.login');
 
     }
+
+     public function login_user()
+     {
+        
+     }
 
        // Helper method to show SweetAlert notification
        private function showSweetAlert($type, $title, $message, $timer = 3000)
@@ -48,7 +53,7 @@ class EntrepreneurUserController extends Controller
                'timer' => $timer,
                'timerProgressBar' => true,
            ];
-   
+
            Session::flash('sweet_alert', $alert);
        }
 

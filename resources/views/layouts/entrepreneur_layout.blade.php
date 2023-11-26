@@ -39,7 +39,7 @@
 </head>
 <body>
 
-    @include('includes.navbar');
+    @include('includes.entrepreneur_navbar');
     @include('includes.admin_sidebar');
     @yield('entrepreneur_content');
     @include('includes.footer');
@@ -57,6 +57,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-
+{{-- sweet alert2 --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
