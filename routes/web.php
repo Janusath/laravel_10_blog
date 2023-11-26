@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\EntrepreneurController;
+use App\Http\Controllers\EntrepreneurUserController;
+use App\Http\Controllers\WebsiteController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +23,20 @@ use App\Http\Controllers\EntrepreneurController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/',[AdminController::class,'login'])->name('admin_login');
+Route::get('/',[AdminUserController::class,'login'])->name('admin_login');
 
+
+Route::get('website',[WebsiteController::class,'website'])->name('website');
+
+// admin routing
 Route::get('/admin_dashboard',[AdminController::class,'index'])->name('admin_dashboard');
-Route::get('/admin_register',[AdminController::class,'register'])->name('admin_register');
-Route::get('/admin_login',[AdminController::class,'login'])->name('admin_login');
+Route::get('/admin_login',[AdminUserController::class,'login'])->name('admin_login');
+Route::get('/admin_register',[AdminUserController::class,'register'])->name('admin_register');
+Route::post('/admin_register_user',[AdminUserController::class,'register_user'])->name('admin_register_user');
 
-
+// entrepreneur routing
 Route::get('/entrepreneur_dashboard',[EntrepreneurController::class,'index'])->name('entrepreneur_dashboard');
-Route::get('/entrepreneur_register',[EntrepreneurController::class,'register'])->name('entrepreneur_register');
-Route::get('/entrepreneur_login',[EntrepreneurController::class,'login'])->name('entrepreneur_login');
+Route::get('/entrepreneur_login',[EntrepreneurUserController::class,'login'])->name('entrepreneur_login');
+Route::get('/entrepreneur_register',[EntrepreneurUserController::class,'register'])->name('entrepreneur_register');
+Route::post('/entrepreneur_register_user',[EntrepreneurUserController::class,'register_user'])->name('entrepreneur_register_user');
+

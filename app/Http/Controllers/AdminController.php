@@ -10,12 +10,5 @@ class AdminController extends Controller
     {
         return view('admin.admin_dashboard');
     }
-    public function register()
-    {
-        return view('admin.register');
-    }
-    public function login()
-    {
-        return view('admin.login');
-    }
+
 }

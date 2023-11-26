@@ -10,12 +10,4 @@ class EntrepreneurController extends Controller
     {
         return view('entrepreneur.entrepreneur_dashboard');
     }
-    public function register()
-    {
-        return view('entrepreneur.register');
-    }
-    public function login()
-    {
-        return view('entrepreneur.login');
-    }
 }

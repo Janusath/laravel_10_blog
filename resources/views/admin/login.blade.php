@@ -42,7 +42,21 @@
 
   <main>
     <div class="container">
-
+        @if(Session::has('sweet_alert'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    icon: '{{ Session::get('sweet_alert.type') }}',
+                    title: '{{ Session::get('sweet_alert.title') }}',
+                    text: '{{ Session::get('sweet_alert.text') }}',
+                    timer: {{ Session::get('sweet_alert.timer') }},
+                    timerProgressBar: {{ Session::get('sweet_alert.timerProgressBar', 'false') }},
+                    showConfirmButton: false,
+                });
+            });
+        </script>
+        {{ Session::forget('sweet_alert') }}
+        @endif
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
@@ -121,6 +135,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+{{-- sweet alert2 --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 
