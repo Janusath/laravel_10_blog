@@ -43,22 +43,33 @@
   <main>
     <div class="container">
 
-<!-- Add this script at the end of your Blade file -->
-@if(Session::has('sweet_alert'))
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            Swal.fire({
-                icon: '{{ Session::get('sweet_alert.type') }}',
-                title: '{{ Session::get('sweet_alert.title') }}',
-                text: '{{ Session::get('sweet_alert.text') }}',
-                timer: {{ Session::get('sweet_alert.timer') }},
-                timerProgressBar: {{ Session::get('sweet_alert.timerProgressBar', 'false') }},
-                showConfirmButton: false,
+        @if(Session::has('sweet_alert'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: '{{ Session::get('
+                    sweet_alert.type ') }}'
+                    , title: '{{ Session::get('
+                    sweet_alert.title ') }}'
+                    , text: '{{ Session::get('
+                    sweet_alert.text ') }}'
+                    , timer: {
+                        {
+                            Session::get('sweet_alert.timer')
+                        }
+                    }
+                    , timerProgressBar: {
+                        {
+                            Session::get('sweet_alert.timerProgressBar', 'false')
+                        }
+                    }
+                    , showConfirmButton: false
+                , });
             });
-        });
-    </script>
-    {{ Session::forget('sweet_alert') }}
-@endif
+
+        </script>
+        {{ Session::forget('sweet_alert') }}
+        @endif
 
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
@@ -81,21 +92,29 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('entrepreneur_login_user') }}">
-
-                    <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
+                  @if ($errors->has('login'))
+                  <div class="alert alert-danger">
+                      {{ $errors->first('login') }}
+                  </div>
+                  @endif
+                  <form class="row g-3 needs-validation" novalidate method="GET" action="{{ route('entrepreneur_login_user') }}">
+                    @csrf
+                    <div class="col-md-12">
+                      <label for="businessReNo" class="form-label">Business ReNo</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="text" name="businessReNo" class="form-control" id="businessReNo" required>
+                        <div class="invalid-feedback">Please enter your Business ReNo.</div>
                       </div>
                     </div>
 
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
+                    <div class="col-md-12">
+                        <label for="Password" class="form-label">Password</label>
+                        <div class="input-group input-group-merge">
+                            <input type="password" name="password" class="form-control" id="Password" required autocomplete="new-password">
+                            <span class="input-group-text cursor-pointer toggle-password" data-target="Password"><i class="bx bx-hide"></i></span>
+                            <div class="invalid-feedback">Please enter your password!</div>
+                        </div>
+
                     </div>
 
                     <div class="col-12">
@@ -124,7 +143,27 @@
   </main><!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+   {{-- jquery --}}
+   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+   <script>
+       $(document).ready(function() {
+           $(".toggle-password").click(function() {
+               var targetId = $(this).data("target");
+               var input = $("#" + targetId);
+               var icon = $(this).find("i");
+
+               if (input.attr("type") === "password") {
+                   input.attr("type", "text");
+                   icon.removeClass("bx bx-hide").addClass("bx bx-show");
+               } else {
+                   input.attr("type", "password");
+                   icon.removeClass("bx bx-show").addClass("bx bx-hide");
+               }
+           });
+       });
+
+   </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

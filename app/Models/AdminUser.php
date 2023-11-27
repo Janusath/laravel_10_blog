@@ -26,6 +26,11 @@ class AdminUser extends Authenticatable
         'password',
     ];
 
+    public function getUserNameAttribute()
+    {
+        return $this->attributes['userName']; // Adjust based on your actual attribute name
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

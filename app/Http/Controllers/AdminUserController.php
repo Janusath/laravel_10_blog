@@ -39,7 +39,7 @@ class AdminUserController extends Controller
 
         $registerData = $request->all();
         $user = AdminUser::create($registerData);
-        Auth::login($user);
+        Auth::guard('admin_user')->login($user);
         $this->showSweetAlert('success', 'Register Successful', 'Successfully Registered');
         return view('admin.login');
 
@@ -55,21 +55,32 @@ class AdminUserController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        // Attempt to authenticate using the 'web' guard (admin_users provider)
+        if (Auth::guard('admin_user')->attempt(['email' => $email, 'password' => $password])) {
             $adminUser = AdminUser::where('email', $email)->first();
-            Auth::login($adminUser);
+            Auth::guard('admin_user')->login($adminUser);
             $this->showSweetAlert('success', 'Login Successful', 'Successfully Logined');
-            return redirect('admin_dashboard');
+            return redirect('/admin_dashboard');
         } else {
             return back()->withErrors(['login' => 'Invalid credentials. Please try again.']);
         }
     }
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/admin_login');
-    }
+
+            public function logout()
+        {
+            auth()->guard('admin_user')->logout();
+
+            $this->showSweetAlert('success', 'Logout Successful', 'Successfully Logout');
+            return redirect('/admin_login');
+        }
+
+        public function admin_profile()
+        {
+            $user = auth()->guard('admin_user')->user();
+            return view('admin.profile.profile', compact('user'));
+        }
+
 
        // Helper method to show SweetAlert notification
        private function showSweetAlert($type, $title, $message, $timer = 3000)

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\EntrepreneurUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class EntrepreneurUserController extends Controller
 {
@@ -38,10 +39,40 @@ class EntrepreneurUserController extends Controller
 
     }
 
-     public function login_user()
-     {
-        
-     }
+    public function login_user(Request $request)
+    {
+        $request->validate([
+            'businessReNo' => 'required',
+            'password' => 'required',
+        ]);
+
+        $businessReNo = $request->input('businessReNo');
+        $password = $request->input('password');
+
+        // Attempt to authenticate using the 'entrepreneur' guard
+        if (Auth::guard('entrepreneur')->attempt(['businessReNo' => $businessReNo, 'password' => $password])) {
+            $entrepreneurUser = EntrepreneurUser::where('businessReNo', $businessReNo)->first();
+            Auth::guard('entrepreneur')->login($entrepreneurUser);
+            $this->showSweetAlert('success', 'Login Successful', 'Successfully Logined');
+            return redirect('entrepreneur_dashboard');
+        } else {
+            return back()->withErrors(['login' => 'Invalid credentials. Please try again.']);
+        }
+    }
+
+            public function logout()
+        {
+            auth()->guard('entrepreneur')->logout();
+
+            $this->showSweetAlert('success', 'Logout Successful', 'Successfully Logout');
+            return redirect('/entrepreneur_login');
+        }
+
+        public function entrepreneur_profile()
+        {
+            $user = auth()->guard('entrepreneur')->user();
+            return view('entrepreneur.profile.profile', compact('user'));
+        }
 
        // Helper method to show SweetAlert notification
        private function showSweetAlert($type, $title, $message, $timer = 3000)

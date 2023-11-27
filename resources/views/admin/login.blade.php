@@ -95,7 +95,7 @@
                                     </div>
                                     @endif
                                     <form class="row g-3 needs-validation" novalidate method="GET" action="{{ route('admin_login_user') }}">
-
+                                        @csrf
                                         <div class="col-md-12">
                                             <label for="Email" class="form-label">Email</label>
                                             <input type="email" name="email" class="form-control" id="Email" required autocomplete="email">
