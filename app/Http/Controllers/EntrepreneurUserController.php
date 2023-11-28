@@ -70,9 +70,32 @@ class EntrepreneurUserController extends Controller
 
         public function entrepreneur_profile()
         {
-            $user = auth()->guard('entrepreneur')->user();
+           $user= auth()->guard('entrepreneur')->user();
             return view('entrepreneur.profile.profile', compact('user'));
         }
+
+        public function entrepreneur_profile_update(Request $request)
+        {
+            $id = auth()->guard('entrepreneur')->user()->id;
+            $data = EntrepreneurUser::find($id);
+            $data->ownerName = $request->ownerName;
+            $data->shopName = $request->shopName;
+            $data->location = $request->location;
+            $data->phoneNo = $request->phoneNo;
+            $data->email = $request->email;
+
+            if ($request->file('picture')) {
+                $file = $request->file('picture');
+                $filename = now()->format('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('images/enterpreneur_images'), $filename);
+                $data['picture'] = $filename;
+            }
+
+            $data->save();
+            return redirect('/entrepreneur_profile');
+        }
+
+
 
        // Helper method to show SweetAlert notification
        private function showSweetAlert($type, $title, $message, $timer = 3000)

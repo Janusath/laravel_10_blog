@@ -47,4 +47,6 @@ Route::get('/entrepreneur_login_user',[EntrepreneurUserController::class,'login_
 Route::get('/entrepreneur_register',[EntrepreneurUserController::class,'register'])->name('entrepreneur_register');
 Route::post('/entrepreneur_register_user',[EntrepreneurUserController::class,'register_user'])->name('entrepreneur_register_user');
 Route::get('/entrepreneur_profile',[EntrepreneurUserController::class,'entrepreneur_profile'])->name('entrepreneur_profile');
+Route::post('/entrepreneur_profile_update', [EntrepreneurUserController::class, 'entrepreneur_profile_update'])->name('entrepreneur_profile_update');
+
 

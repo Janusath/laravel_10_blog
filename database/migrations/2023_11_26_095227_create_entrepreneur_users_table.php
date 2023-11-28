@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('category');
             $table->bigInteger('businessReNo')->unique();
             $table->integer('phoneNo');
+            $table->string('picture')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
