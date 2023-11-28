@@ -77,8 +77,29 @@ class AdminUserController extends Controller
 
         public function admin_profile()
         {
-            $user = auth()->guard('admin_user')->user();
-            return view('admin.profile.profile', compact('user'));
+            $admin = auth()->guard('admin_user')->user();
+            return view('admin.profile.profile', compact('admin'));
+        }
+
+        public function admin_profile_update(Request $request)
+        {
+            $id = auth()->guard('admin_user')->user()->id;
+            $data = AdminUser::find($id);
+            $data->firstName = $request->firstName;
+            $data->lastName = $request->lastName;
+            $data->fullName = $request->fullName;
+            $data->userName = $request->userName;
+
+
+            if ($request->file('picture')) {
+                $file = $request->file('picture');
+                $filename = now()->format('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('images/admin_images'), $filename);
+                $data['picture'] = $filename;
+            }
+
+            $data->save();
+            return redirect('/admin_profile');
         }
 
 

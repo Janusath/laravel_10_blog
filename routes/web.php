@@ -36,7 +36,7 @@ Route::get('/admin_register',[AdminUserController::class,'register'])->name('adm
 Route::post('/admin_register_user',[AdminUserController::class,'register_user'])->name('admin_register_user');
 Route::get('/admin_profile',[AdminUserController::class,'admin_profile'])->name('admin_profile');
 Route::get('/admin_logout',[AdminUserController::class,'logout'])->name('admin_logout');
-
+Route::post('/admin_profile_update', [AdminUserController::class, 'admin_profile_update'])->name('admin_profile_update');
 
 Route::get('/entrepreneur_logout',[EntrepreneurUserController::class,'logout'])->name('entrepreneur_logout');
 

@@ -185,7 +185,8 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img class="rounded-circle" src="{{
+                (!empty($admin->picture))? url('/images/admin_images/' . $admin->picture): url('/images/admin_images/202311281926user.jpg') }}" alt="Card image cap">
             @if(auth()->guard('admin_user')->check())
               <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->guard('admin_user')->user()->userName }}</span>
              @endif

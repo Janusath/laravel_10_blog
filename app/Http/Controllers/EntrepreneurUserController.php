@@ -70,7 +70,8 @@ class EntrepreneurUserController extends Controller
 
         public function entrepreneur_profile()
         {
-           $user= auth()->guard('entrepreneur')->user();
+            $id = auth()->guard('entrepreneur')->user()->id;
+            $user = EntrepreneurUser::find($id);
             return view('entrepreneur.profile.profile', compact('user'));
         }
 
