@@ -130,7 +130,6 @@
                       <p class="small mb-0">Don't have account? <a href="{{route('entrepreneur_register')}}">Create an account</a></p>
                     </div>
                   </form>
-
                 </div>
               </div>
             </div>

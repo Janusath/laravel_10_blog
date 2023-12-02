@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\EntrepreneurController;
 use App\Http\Controllers\EntrepreneurUserController;
+use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\WebsiteController;
 
 
@@ -23,6 +24,13 @@ use App\Http\Controllers\WebsiteController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::fallback(function()
+{
+    return view('error_page.error404');
+
+});
+
 Route::get('/',[AdminUserController::class,'login'])->name('admin_login');
 
 
@@ -49,4 +57,10 @@ Route::post('/entrepreneur_register_user',[EntrepreneurUserController::class,'re
 Route::get('/entrepreneur_profile',[EntrepreneurUserController::class,'entrepreneur_profile'])->name('entrepreneur_profile');
 Route::post('/entrepreneur_profile_update', [EntrepreneurUserController::class, 'entrepreneur_profile_update'])->name('entrepreneur_profile_update');
 
+Route::get('/production', [ProductionController::class, 'index'])->name('production');
+Route::post('/production_store',[ProductionController::class,'store'])->name('production_store');
+Route::get('/production_show', [ProductionController::class, 'show'])->name('production_show');
+Route::get('/production_edit', [ProductionController::class, 'edit'])->name('production_edit');
+Route::post('/production_update', [ProductionController::class, 'update'])->name('production_update');
+Route::delete('/production_delete', [ProductionController::class, 'delete'])->name('production_delete');
 

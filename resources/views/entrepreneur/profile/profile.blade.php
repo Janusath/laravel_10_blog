@@ -22,7 +22,7 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                 <img class="rounded-circle" src="{{
-                    (!empty($user->picture))? url('/images/enterpreneur_images/' . $user->picture): url('/images/enterpreneur_images/202311281926user.jpg') }}" alt="Card image cap">
+                    (!empty($user->picture))? url('images/enterpreneur_images/' . $user->picture): url('images/enterpreneur_images/202311281926user.jpg') }}" alt="Card image cap">
 
               <h2>{{ $user->ownerName  }}</h2>
               <h3>Admin</h3>
@@ -100,7 +100,8 @@
                       <div class="col-md-8 col-lg-9">
 
                 <img id="showImage"  class="rounded avatar-lg" src="{{
-                    (!empty($user->picture))? url('/images/enterpreneur_images/' . $user->picture): url('/images/enterpreneur_images/202311281926user.jpg') }}" alt="Card image cap">
+                    (!empty($user->picture))? url('images/enterpreneur_images/' . $user->picture): url('images/enterpreneur_images/202311281926user.jpg') }}" alt="Card image cap">
+
                         {{-- <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>

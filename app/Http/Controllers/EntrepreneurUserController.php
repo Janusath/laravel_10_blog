@@ -88,7 +88,7 @@ class EntrepreneurUserController extends Controller
             if ($request->file('picture')) {
                 $file = $request->file('picture');
                 $filename = now()->format('YmdHi') . $file->getClientOriginalName();
-                $file->move(public_path('images/enterpreneur_images'), $filename);
+                $file->move(public_path('images/enterpreneur_images/'), $filename);
                 $data['picture'] = $filename;
             }
 

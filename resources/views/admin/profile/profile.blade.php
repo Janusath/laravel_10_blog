@@ -23,7 +23,7 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                 <img class="rounded-circle" src="{{
-                    (!empty($admin->picture))? url('/images/admin_images/' . $admin->picture): url('/images/admin_images/202311281926user.jpg') }}" alt="Card image cap">
+                    (!empty($admin->picture))? url('images/admin_images/' . $admin->picture): url('images/admin_images/202311281926user.jpg') }}" alt="Card image cap">
               <h2>{{ auth()->guard('admin_user')->user()->userName }}</h2>
               <h3>Admin</h3>
               <div class="social-links mt-2">
@@ -96,7 +96,7 @@
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
                         <img id="showImage" class="rounded-circle" src="{{
-                            (!empty($admin->picture))? url('/images/admin_images/' . $admin->picture): url('/images/admin_images/202311281926user.jpg') }}" alt="Card image cap">
+                            (!empty($admin->picture))? url('images/admin_images/' . $admin->picture): url('images/admin_images/202311281926user.jpg') }}" alt="Card image cap">
                         {{-- <img src="assets/img/profile-img.jpg" alt="Profile"> --}}
                         {{-- <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
