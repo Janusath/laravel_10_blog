@@ -28,8 +28,8 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{ route('production') }}">
-              <i class="bi bi-circle"></i><span>Entrepreneur</span>
+            <a href="{{ route('admin_add_enterpreneur_user') }}">
+              <i class="bi bi-circle"></i><span>Add Entrepreneur</span>
             </a>
           </li>
         </ul>

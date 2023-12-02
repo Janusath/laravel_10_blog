@@ -17,6 +17,8 @@ class EntrepreneurUser extends Authenticatable
         'phoneNo',
         'email',
         'password',
+        'entrepreneur_status',
+        'picture',
     ];
 
        /**

@@ -103,7 +103,25 @@
                       </div>
                       <div class="col-md-6">
                         <label for="category" class="form-label">category</label>
-                        <input type="text" name="category" class="form-control" id="category" required>
+                        <select class="form-select" name="category" id="category" aria-label="Default select example" required>
+                            <option selected disabled>select category </option>
+                            <option value="Clothing, Shoes & Accessories">Clothing, Shoes & Accessories</option>
+                            <option value="Home & Patio">Home & Patio</option>
+                            <option value="Baby">Baby</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="School & Office">School & Office</option>
+                            <option value="Toys">Toys</option>
+                            <option value="Sports, Fitness & Outdoors">Sports, Fitness & Outdoors</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+                            <option value="Health">Health</option>
+                            <option value="Household Essentials">Household Essentials</option>
+                            <option value="Pets">Pets</option>
+                            <option value="Grocery">Grocery</option>
+                            <option value="Celebrations & more">Celebrations & more</option>
+                            <option value="Deals & more">Deals & more</option>
+                            <option value="Services">Services</option>
+                          </select>
                         <div class="invalid-feedback">Please, enter category!</div>
                       </div>
 

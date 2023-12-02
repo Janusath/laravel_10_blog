@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAddEntrepreneurUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\EntrepreneurUserController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\TimeSlotController;
 use App\Http\Controllers\WebsiteController;
+use App\Models\AdminAddEntrepreneurUser;
 
 
 
@@ -48,6 +50,14 @@ Route::get('/admin_logout',[AdminUserController::class,'logout'])->name('admin_l
 Route::post('/admin_profile_update', [AdminUserController::class, 'admin_profile_update'])->name('admin_profile_update');
 
 Route::get('/entrepreneur_logout',[EntrepreneurUserController::class,'logout'])->name('entrepreneur_logout');
+
+// admin add entrepreneur user routing
+Route::get('/admin_add_enterpreneur_user', [AdminAddEntrepreneurUserController::class, 'index'])->name('admin_add_enterpreneur_user');
+Route::post('/admin_add_enterpreneur_user_store',[AdminAddEntrepreneurUserController::class,'store'])->name('admin_add_enterpreneur_user_store');
+Route::get('/admin_add_enterpreneur_user_show', [AdminAddEntrepreneurUserController::class, 'show'])->name('admin_add_enterpreneur_user_show');
+Route::get('/admin_add_enterpreneur_user_edit', [AdminAddEntrepreneurUserController::class, 'edit'])->name('admin_add_enterpreneur_user_edit');
+Route::post('/admin_add_enterpreneur_user_update', [AdminAddEntrepreneurUserController::class, 'update'])->name('admin_add_enterpreneur_user_update');
+Route::delete('/eadmin_add_enterpreneur_user_delete', [AdminAddEntrepreneurUserController::class, 'delete'])->name('admin_add_enterpreneur_user_delete');
 
 // entrepreneur routing
 Route::get('/entrepreneur_dashboard',[EntrepreneurController::class,'index'])->name('entrepreneur_dashboard');
