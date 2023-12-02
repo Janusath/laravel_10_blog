@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\EntrepreneurController;
 use App\Http\Controllers\EntrepreneurUserController;
 use App\Http\Controllers\ProductionController;
+use App\Http\Controllers\TimeSlotController;
 use App\Http\Controllers\WebsiteController;
 
 
@@ -57,6 +58,7 @@ Route::post('/entrepreneur_register_user',[EntrepreneurUserController::class,'re
 Route::get('/entrepreneur_profile',[EntrepreneurUserController::class,'entrepreneur_profile'])->name('entrepreneur_profile');
 Route::post('/entrepreneur_profile_update', [EntrepreneurUserController::class, 'entrepreneur_profile_update'])->name('entrepreneur_profile_update');
 
+// entrepreneur production routing
 Route::get('/production', [ProductionController::class, 'index'])->name('production');
 Route::post('/production_store',[ProductionController::class,'store'])->name('production_store');
 Route::get('/production_show', [ProductionController::class, 'show'])->name('production_show');
@@ -64,3 +66,10 @@ Route::get('/production_edit', [ProductionController::class, 'edit'])->name('pro
 Route::post('/production_update', [ProductionController::class, 'update'])->name('production_update');
 Route::delete('/production_delete', [ProductionController::class, 'delete'])->name('production_delete');
 
+// entrepreneur time_slot routing
+Route::get('/time_slot', [TimeSlotController::class, 'index'])->name('time_slot');
+Route::post('/time_slot_store',[TimeSlotController::class,'store'])->name('time_slot_store');
+Route::get('/time_slot_show', [TimeSlotController::class, 'show'])->name('time_slot_show');
+Route::get('time_slot_edit', [TimeSlotController::class, 'edit'])->name('time_slot_edit');
+Route::post('/time_slot_update', [TimeSlotController::class, 'update'])->name('time_slot_update');
+Route::delete('/time_slot_delete', [TimeSlotController::class, 'delete'])->name('time_slot_delete');

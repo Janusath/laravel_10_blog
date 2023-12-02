@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('shopName');
             $table->string('location');
             $table->string('category');
+            $table->tinyInteger('entrepreneur_status')->default('0');
             $table->bigInteger('businessReNo')->unique();
             $table->integer('phoneNo');
             $table->string('picture')->nullable();

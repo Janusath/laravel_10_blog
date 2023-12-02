@@ -21,7 +21,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+        <span class="d-none d-lg-block">Super Admin</span>
       </a>
     </div><!-- End Logo -->
 
@@ -197,7 +197,7 @@
                 @if(auth()->guard('admin_user')->check())
                   <h6>{{ auth()->guard('admin_user')->user()->userName }}</h6>
                 @endif
-              <span>System Admin</span>
+              <span>Super Admin</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -212,27 +212,6 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
             <li>
               <a class="dropdown-item d-flex align-items-center" href="{{ route('admin_logout') }}">
                 <i class="bi bi-box-arrow-right"></i>

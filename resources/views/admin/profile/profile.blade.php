@@ -25,7 +25,7 @@
                 <img class="rounded-circle" src="{{
                     (!empty($admin->picture))? url('images/admin_images/' . $admin->picture): url('images/admin_images/202311281926user.jpg') }}" alt="Card image cap">
               <h2>{{ auth()->guard('admin_user')->user()->userName }}</h2>
-              <h3>Admin</h3>
+              <h3>Super Admin</h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>

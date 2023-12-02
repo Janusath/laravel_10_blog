@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('description');
-            $table->bigInteger('businessReNo')->unique();
+            $table->bigInteger('businessReNo');
             $table->timestamps();
         });
     }

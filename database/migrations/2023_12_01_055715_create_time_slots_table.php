@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('friday');
             $table->string('saturday');
             $table->string('sunday');
-            $table->bigInteger('businessReNo')->unique();
+            $table->bigInteger('businessReNo');
             $table->timestamps();
         });
     }
