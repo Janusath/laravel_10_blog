@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" id="add_entrepreneur_registration_btn" class="btn btn-primary">Add Entrepreneur Registration</button>
+                                        <button type="submit" id="add_entrepreneur_registration_btn" class="btn btn-primary">Registration</button>
                                 </div>
                             </form>
 
@@ -133,7 +133,7 @@
     </div>
 </main>
 <!-- Template Main JS File -->
- 
+
 <script>
     $(document).ready(function () {
         $(".toggle-password").click(function () {
