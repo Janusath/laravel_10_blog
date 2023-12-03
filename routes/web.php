@@ -8,6 +8,7 @@ use App\Http\Controllers\EntrepreneurController;
 use App\Http\Controllers\EntrepreneurUserController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\PublishController;
+use App\Http\Controllers\ShopBannerController;
 use App\Http\Controllers\TimeSlotController;
 use App\Http\Controllers\WebsiteController;
 
@@ -85,3 +86,11 @@ Route::get('/time_slot_show', [TimeSlotController::class, 'show'])->name('time_s
 Route::get('time_slot_edit', [TimeSlotController::class, 'edit'])->name('time_slot_edit');
 Route::post('/time_slot_update', [TimeSlotController::class, 'update'])->name('time_slot_update');
 Route::delete('/time_slot_delete', [TimeSlotController::class, 'delete'])->name('time_slot_delete');
+
+// entrepreneur shop_banner routing
+Route::get('/shop_banner', [ShopBannerController::class, 'index'])->name('shop_banner');
+Route::post('/shop_banner_store',[ShopBannerController::class,'store'])->name('shop_banner_store');
+Route::get('/shop_banner_show', [ShopBannerController::class, 'show'])->name('shop_banner_show');
+Route::get('shop_banner_edit', [ShopBannerController::class, 'edit'])->name('shop_banner_edit');
+Route::post('/shop_banner_update', [ShopBannerController::class, 'update'])->name('shop_banner_update');
+Route::delete('/shop_banner_delete', [ShopBannerController::class, 'delete'])->name('shop_banner_delete');

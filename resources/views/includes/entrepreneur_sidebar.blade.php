@@ -41,7 +41,7 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-badges.html">
+            <a href="{{ route('shop_banner') }}">
               <i class="bi bi-circle"></i><span>Banner</span>
             </a>
           </li>
