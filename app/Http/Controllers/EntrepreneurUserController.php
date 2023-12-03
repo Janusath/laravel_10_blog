@@ -31,8 +31,18 @@ class EntrepreneurUserController extends Controller
             return redirect()->route('entrepreneur_register')->withErrors($validator)->withInput();
 
         }
-
-        $registerData =$request->all() ;
+        $registerData = [
+            'ownerName' => $request->ownerName,
+            'shopName' => $request->shopName,
+            'location' => $request->location,
+            'category' => $request->category,
+            'businessReNo' => $request->businessReNo,
+            'email' => $request->email,
+            'phoneNo' => $request->phoneNo,
+            'password' => $request->password,
+            'confirmPassword' => $request->confirmPassword,
+            'entrepreneur_status' => '0', //default value
+        ];
         EntrepreneurUser::create($registerData);
         $this->showSweetAlert('success', 'Register Successful', 'Successfully Registered');
         return view('entrepreneur.login');
@@ -84,6 +94,7 @@ class EntrepreneurUserController extends Controller
             $data->location = $request->location;
             $data->phoneNo = $request->phoneNo;
             $data->email = $request->email;
+            $data->password = $request->email;
 
             if ($request->file('picture')) {
                 $file = $request->file('picture');

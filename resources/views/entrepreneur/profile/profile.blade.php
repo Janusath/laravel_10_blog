@@ -88,6 +88,7 @@
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <div class="col-lg-9 col-md-8">{{ $user->email }}</div>
                   </div>
+
                 </div>
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -143,6 +144,12 @@
                         <input name="email" type="email" class="form-control" id="email" value="{{ $user->email }}">
                       </div>
                     </div>
+                    <div class="row mb-3">
+                        <label for="email" class="col-md-4 col-lg-3 col-form-label">Password</label>
+                        <div class="col-md-8 col-lg-9">
+                          <input name="password" type="text" class="form-control" id="password" value="{{ $user->password }}">
+                        </div>
+                      </div>
 
                     <div class="row mb-3">
                         <label for="picture" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
