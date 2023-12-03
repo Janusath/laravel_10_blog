@@ -73,7 +73,6 @@ class AdminAddEntrepreneurUserController extends Controller
             <thead >
               <tr>
                 <th>ID</th>
-                <th>Image</th>
                 <th>owner Name</th>
                 <th>Shop Name</th>
                 <th>Location</th>
@@ -87,7 +86,6 @@ class AdminAddEntrepreneurUserController extends Controller
             foreach ($entrepreneurUser as $register) {
                 $output .= '<tr>
                 <td>' . $register->id . '</td>
-                <td><img src="/public/images/enterpreneur_images/' . $register->picture . '" width="50" class="img-thumbnail "></td>
                 <td>' . $register->ownerName . '</td>
                 <td>' . $register->shopName . '</td>
                 <td>' . $register->location . '</td>
