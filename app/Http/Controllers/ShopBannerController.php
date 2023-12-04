@@ -42,7 +42,7 @@ class ShopBannerController extends Controller
         $shopBanner = ShopBanner::all();
         $output = '';
         if ($shopBanner->count() > 0) {
-            $output .= ' <div class="table-responsive"> <table class="table table-striped table-sm text-center align-middle">
+            $output .= ' <div class="table-responsive"> <table class="table  table-striped table-sm text-center align-middle">
 
             <thead >
               <tr>

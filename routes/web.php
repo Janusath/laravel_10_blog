@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\EntrepreneurController;
 use App\Http\Controllers\EntrepreneurUserController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\PublishController;
 use App\Http\Controllers\ShopBannerController;
@@ -61,6 +62,14 @@ Route::get('/publish', [PublishController::class, 'index'])->name('publish');
 Route::get('/publish_show',[PublishController::class,'show'])->name('publish_show');
 Route::get('/publish_edit', [PublishController::class, 'edit'])->name('publish_edit');
 Route::post('/publish_update', [PublishController::class, 'update'])->name('publish_update');
+
+// admin event routing
+Route::get('/event', [EventController::class, 'index'])->name('event');
+Route::post('/event_store',[EventController::class,'store'])->name('event_store');
+Route::get('/event_show', [EventController::class, 'show'])->name('event_show');
+Route::get('event_edit', [EventController::class, 'edit'])->name('event_edit');
+Route::post('/event_update', [EventController::class, 'update'])->name('event_update');
+Route::delete('/event_delete', [EventController::class, 'delete'])->name('event_delete');
 
 // entrepreneur routing
 Route::get('/entrepreneur_dashboard',[EntrepreneurController::class,'index'])->name('entrepreneur_dashboard');

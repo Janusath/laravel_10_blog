@@ -15,7 +15,7 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{ route('time_slot') }}">
+            <a href="{{ route('event') }}">
               <i class="bi bi-circle"></i><span>Event</span>
             </a>
           </li>
