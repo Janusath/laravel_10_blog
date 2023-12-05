@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('location');
             $table->string('category');
             $table->tinyInteger('entrepreneur_status');
-            $table->bigInteger('businessReNo')->unique();
+            $table->string('businessReNo')->unique();
             $table->integer('phoneNo');
             $table->string('picture')->nullable();
             $table->string('email')->unique();
