@@ -37,8 +37,9 @@ Route::fallback(function()
 
 Route::get('/',[AdminUserController::class,'login'])->name('admin_login');
 
-
 Route::get('blog',[WebsiteController::class,'website'])->name('website');
+Route::get('contact',[WebsiteController::class,'contact'])->name('contact');
+
 
 // admin routing
 Route::get('/admin_dashboard',[AdminController::class,'index'])->name('admin_dashboard');

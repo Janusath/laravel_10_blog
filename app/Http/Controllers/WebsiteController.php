@@ -10,4 +10,9 @@ class WebsiteController extends Controller
     {
         return view('website.website');
     }
+
+    public function contact()
+    {
+        return view('website.contact');
+    }
 }
