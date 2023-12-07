@@ -98,28 +98,30 @@ Author URL: http://w3layouts.com
             </div>
             <div class="row">
                 <div class="col-lg-8 form-inner-cont">
-                    <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+                     @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
+                    <form action="{{route('email_store')}}" method="post" class="signin-form">
+                        @csrf
                         <div class="form-grids">
                             <div class="form-input">
-                                <input type="text" name="w3lName" id="w3lName" placeholder="Enter your name *"
-                                    required="" />
+                                <input type="text" name="name" id="name" placeholder="Enter your name *" required="" />
                             </div>
                             <div class="form-input">
-                                <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Enter subject "
-                                    required />
+                                <input type="text" name="subject" id="subject" placeholder="Enter subject " required />
                             </div>
                             <div class="form-input">
-                                <input type="email" name="w3lSender" id="w3lSender" placeholder="Enter your email *"
-                                    required />
+                                <input type="email" name="email" id="email" placeholder="Enter your email *" required />
                             </div>
                             <div class="form-input">
-                                <input type="text" name="w3lPhone" id="w3lPhone" placeholder="Enter your Phone Number *"
-                                    required />
+                                <input type="text" name="phoneNo" id="phoneNo" placeholder="Enter your Phone Number *" required />
                             </div>
                         </div>
                         <div class="form-input">
-                            <textarea name="w3lMessage" id="w3lMessage" placeholder="Your message here"
-                                required=""></textarea>
+                            <textarea name="message" id="message" placeholder="Your message here" required=""></textarea>
                         </div>
                         <div class="text-right">
                             <button class="btn btn-style btn-primary">Submit</button>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAddEntrepreneurUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\EntrepreneurController;
 use App\Http\Controllers\EntrepreneurUserController;
 use App\Http\Controllers\EventController;
@@ -37,8 +38,10 @@ Route::fallback(function()
 
 Route::get('/',[AdminUserController::class,'login'])->name('admin_login');
 
-Route::get('blog',[WebsiteController::class,'website'])->name('website');
-Route::get('contact',[WebsiteController::class,'contact'])->name('contact');
+Route::get('/blog',[WebsiteController::class,'website'])->name('website');
+Route::get('/contact',[WebsiteController::class,'contact'])->name('contact');
+
+Route::post('/email_store',[EmailController::class,'store'])->name('email_store');
 
 
 // admin routing
