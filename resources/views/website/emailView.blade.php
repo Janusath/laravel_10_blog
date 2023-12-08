@@ -14,7 +14,7 @@
         </div><!-- End Page Title -->
 
         <div class="row ">
-            <div class="col-sm-12 col-md-12">
+            <div class="col-md-12">
                 <div class="card shadow">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="text-dark">List of Emails </h3>

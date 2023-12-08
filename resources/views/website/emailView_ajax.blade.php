@@ -19,6 +19,7 @@
           }
         });
       }
+      fetchAllEmails();
 
     });
   </script>
