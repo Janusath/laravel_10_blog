@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
     public function website()
     {
-        return view('website.website');
+        $event = Event::all();
+        return view('website.website',compact('event'));
     }
 
     public function contact()

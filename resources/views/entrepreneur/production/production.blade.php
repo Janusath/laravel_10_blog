@@ -82,7 +82,7 @@
                                             <label for="image">Select Image</label>
                                             <input type="file" name="image" id="edit_image" class="form-control">
                                         </div>
-                                        <div class="mt-2" id="image">
+                                        <div class="mt-2" id="edit_image">
 
                                         </div>
                                     </div>

@@ -68,7 +68,7 @@
             $("#edit_description").val(response.description);
             console.log(`public/images/admin_images/${response.image}`);
             $("#image").html(
-            `<img src="public/images/admin_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
+            `<img src="storage/images/admin_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
             $("#event_id").val(response.id);
             $("#event_image").val(response.image);
         }

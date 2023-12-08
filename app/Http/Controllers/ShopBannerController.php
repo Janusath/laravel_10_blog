@@ -56,7 +56,7 @@ class ShopBannerController extends Controller
             foreach ($shopBanner as $banner) {
                 $output .= '<tr>
                 <td>' . $banner->id . '</td>
-                <td><img src="storage/public/images/enterpreneur_images' . $banner->image . '" width="50" class="img-thumbnail "></td>
+                <td><img src="storage/images/enterpreneur_images/' . $banner->image . '" width="50" class="rounded-circle"></td>
                 <td>' . $banner->description . '</td>
 
 
@@ -96,7 +96,7 @@ class ShopBannerController extends Controller
 			$fileName = time() . '.' . $file->getClientOriginalExtension();
 			$file->storeAs('public/images/enterpreneur_images/', $fileName);
 			if ($banner->image) {
-				Storage::delete('public/images/enterpreneur_images/' . $banner->image);
+				Storage::delete('storage/images/enterpreneur_images/' . $banner->image);
 			}
 		} else {
 			$fileName = $request->banner_image;

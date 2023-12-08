@@ -64,9 +64,9 @@
             $("#edit_name").val(response.name);  // Corrected ID
             $("#edit_category").val(response.category);  // Corrected ID
             $("#edit_details").val(response.details);  // Corrected ID
-            console.log(`public/images/enterpreneur_images/${response.image}`);
+            console.log(`storage/images/enterpreneur_images/${response.image}`);
             $("#image").html(
-            `<img src="public/images/enterpreneur_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
+            `<img src="storage/images/enterpreneur_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
             $("#product_id").val(response.id);
             $("#product_image").val(response.image);
         }

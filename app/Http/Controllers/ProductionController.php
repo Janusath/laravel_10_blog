@@ -61,7 +61,7 @@ class ProductionController extends Controller
             foreach ($production as $product) {
                 $output .= '<tr>
                 <td>' . $product->id . '</td>
-                <td><img src="storage/public/images/enterpreneur_images' . $product->image . '" width="50" class="img-thumbnail "></td>
+                <td><img src="storage/images/enterpreneur_images/' . $product->image . '" width="50" class="rounded-circle"></td>
                 <td>' . $product->name . '</td>
                 <td>' . $product->category . '</td>
                 <td>' . $product->details . '</td>
