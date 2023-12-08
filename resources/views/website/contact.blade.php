@@ -117,7 +117,7 @@ Author URL: http://w3layouts.com
                                 <input type="email" name="email" id="email" placeholder="Enter your email *" required />
                             </div>
                             <div class="form-input">
-                                <input type="text" name="phoneNo" id="phoneNo" placeholder="Enter your Phone Number *" required />
+                                <input type="number" name="phoneNo" id="phoneNo" placeholder="Enter your Phone Number *" required />
                             </div>
                         </div>
                         <div class="form-input">

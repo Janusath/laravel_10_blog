@@ -41,6 +41,8 @@ Route::get('/',[AdminUserController::class,'login'])->name('admin_login');
 Route::get('/blog',[WebsiteController::class,'website'])->name('website');
 Route::get('/contact',[WebsiteController::class,'contact'])->name('contact');
 
+Route::get('/email',[EmailController::class,'index'])->name('email');
+Route::get('/email_show', [EmailController::class, 'show'])->name('email_show');
 Route::post('/email_store',[EmailController::class,'store'])->name('email_store');
 
 

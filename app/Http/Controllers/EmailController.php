@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminUser;
 use App\Models\Email;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Mailables\Content;
@@ -15,7 +16,10 @@ class EmailController extends Controller
      */
     public function index()
     {
-        //
+        $id = auth()->guard('admin_user')->user()->id;
+        $admin = AdminUser::find($id);
+        return view('website.emailView', compact('admin'));
+
     }
 
     /**
@@ -48,7 +52,38 @@ class EmailController extends Controller
      */
     public function show(Email $email)
     {
-        //
+        $emails = Email::all();
+        $output = '';
+        if ($emails->count() > 0) {
+            $output .= ' <div class="table-responsive"> <table class="table table-striped table-sm text-center align-middle">
+
+            <thead >
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>Message</th>
+
+              </tr>
+            </thead>
+            <tbody>';
+            foreach ($emails as $email) {
+                $output .= '<tr>
+                <td>' . $email->id . '</td>
+                <td>' . $email->name . '</td>
+                <td>' . $email->subject . '</td>
+                <td>' . $email->email . '</td>
+                <td>' . $email->phoneNo . '</td>
+                <td>' . $email->message . '</td>
+              </tr>';
+            }
+            $output .= '</tbody></table></div>';
+            echo $output;
+        } else {
+            echo '<h1 class="text-center text-secondary my-5">No record present in the database!</h1>';
+        }
     }
 
     /**
