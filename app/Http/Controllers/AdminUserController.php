@@ -89,7 +89,7 @@ class AdminUserController extends Controller
             $data->lastName = $request->lastName;
             $data->fullName = $request->fullName;
             $data->userName = $request->userName;
-
+            
 
             if ($request->file('picture')) {
                 $file = $request->file('picture');

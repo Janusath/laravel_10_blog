@@ -45,7 +45,7 @@ class PublishController extends Controller
                 $statusText = $register->entrepreneur_status == 1 ? '<span class=" badge text-bg-success">Published</span>' : '<span class=" badge text-bg-danger">Not Published</span>';
                     $output .= '<tr>
                         <td>' . $register->id . '</td>
-                        <td><img src="storage/images/enterpreneur_images/' . $register->picture . '" width="50" class="rounded-circle"></td>
+                        <td><img src="images/enterpreneur_images/' . $register->picture . '" width="50" class="rounded-circle"></td>
                         <td>' . $register->ownerName . '</td>
                         <td>' . $register->shopName . '</td>
                         <td>' . $register->location . '</td>

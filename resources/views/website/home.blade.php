@@ -9,7 +9,7 @@ Author URL: http://w3layouts.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>NewsBlog a Blog Category Bootstrap Responsive Website Template | Home : W3layouts</title>
+    <title>Home</title>
 
     <link href="//fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
@@ -23,12 +23,8 @@ Author URL: http://w3layouts.com
         <div class="container">
             <!--/nav-->
             <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-sm-3 px-0">
-                <a class="navbar-brand" href="index.html">
-                    <span class="fa fa-newspaper-o"></span> NewsBlog</a>
-                <!-- if logo is image enable this
-						<a class="navbar-brand" href="#index.html">
-							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-						</a> -->
+                <a > <img src="/website/assets/images/idb_logo.png" alt="Your logo" title="Your logo" style="height:70px;" />
+						</a>
 
 
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,20 +35,14 @@ Author URL: http://w3layouts.com
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <nav class="mx-auto">
-                        <div class="search-bar">
-                            <form class="search">
-                                <input type="search" class="search__input" name="search" placeholder="Discover news, articles and more" onload="equalWidth()" required>
-                                <span class="fa fa-search search__icon"></span>
-                            </form>
-                        </div>
-                    </nav>
+
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('website')}}">Home</a>
+                            <a class="nav-link" href="{{route('home')}}">Home</a>
                         </li>
 
                         <li class="nav-item @@contact__active">
-                            <a class="nav-link" href="beauty.html">Beauty</a>
+                            <a class="nav-link" href="{{route('event_post')}}">Event</a>
                         </li>
                         <li class="nav-item @@contact__active">
                             <a class="nav-link" href="fashion.html">Fashion</a>
@@ -86,126 +76,49 @@ Author URL: http://w3layouts.com
     </header>
     <!-- //header -->
     <!-- /homeblock1-->
-    <section class="w3l-homeblock1 py-sm-5 py-4">
-        <div class="container py-md-4">
-            <div class="grids-area-hny main-cont-wthree-fea row">
-                <div class="col-lg-3 col-6 grids-feature">
-                    <a href="beauty.html">
-                        <div class="area-box">
-                            <span class="fa fa-bath"></span>
-                            <h4 class="title-head">Beauty</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-6 grids-feature">
-                    <a href="fashion.html">
-                        <div class="area-box">
-                            <span class="fa fa-female"></span>
-                            <h4 class="title-head">Fashion and style</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-6 grids-feature mt-lg-0 mt-md-4 mt-3">
-                    <a href="#food">
-                        <div class="area-box">
-                            <span class="fa fa-cutlery"></span>
-                            <h4 class="title-head">Food and wellness</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-6 grids-feature mt-lg-0 mt-md-4 mt-3">
-                    <a href="#lifsetyle">
-                        <div class="area-box">
-                            <span class="fa fa-pie-chart"></span>
-                            <h4 class="title-head">Lifestyle</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            {{-- <a href="{{route('entrepreneur_login')}}" class="btn btn-primary px-4">Login</a> --}}
 
-
-        </div>
-        </div>
-    </section>
-    <!-- //homeblock1-->
 
     <section class="w3l-testimonials" id="testimonials">
         <!-- main-slider -->
         <div class="testimonials pt-2 pb-5">
             <div class="container pb-lg-5">
                 <div class="owl-testimonial owl-carousel owl-theme mb-md-0 mb-sm-5 mb-4">
+
                     <div class="item">
                         <div class="row slider-info">
-                            <div class="col-lg-8 message-info align-self">
-                                <span class="label-blue mb-sm-4 mb-3">Beauty</span>
-                                <h3 class="title-big mb-4">Create an Art that shows the beauty in everyone’s ideas of flaws.
-                                </h3>
-                                <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
-                                    sit id accusantium officia quod quasi necessitatibus perspiciatis Harum error
-                                    provident quibusdam tenetur. Ut fermentum leo quis sapienet faucibus, at
-                                    scelerisque sem feugiat. Nulla in eros purus.</p>
-                            </div>
-                            <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
-                                <img src="website/assets/images/beauty.jpg" class="img-fluid radius-image-full" alt="client image">
-                            </div>
+
+                            <img src="/website/assets/images/slider_img.png" class="img-fluid radius-image-full" alt="client image">
+
                         </div>
                     </div>
                     <div class="item">
                         <div class="row slider-info">
-                            <div class="col-lg-8 message-info align-self">
-                                <span class="label-blue mb-sm-4 mb-3">Fashion and Style</span>
-                                <h3 class="title-big mb-4">Addicted to Fashion is the Armor to survive the reality of
-                                    Everyday Life.
-                                </h3>
-                                <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
-                                    sit id accusantium officia quod quasi necessitatibus perspiciatis Harum error
-                                    provident quibusdam tenetur. Ut fermentum leo quis sapienet faucibus, at
-                                    scelerisque sem feugiat. Nulla in eros purus.</p>
-                            </div>
-                            <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
-                                <img src="website/assets/images/fashion.jpg" class="img-fluid radius-image-full" alt="client image">
-                            </div>
+
+                            <img src="/website/assets/images/slider_img2.png" class="img-fluid radius-image-full" alt="client image">
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="row slider-info">
-                            <div class="col-lg-8 message-info align-self">
-                                <span class="label-blue mb-sm-4 mb-3">Food and Wellness</span>
-                                <h3 class="title-big mb-4">Create healthy habits, not restrictions. Wellness is a taste of
-                                    being.
-                                </h3>
-                                <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
-                                    sit id accusantium officia quod quasi necessitatibus perspiciatis Harum error
-                                    provident quibusdam tenetur. Ut fermentum leo quis sapienet faucibus, at
-                                    scelerisque sem feugiat. Nulla in eros purus.</p>
-                            </div>
-                            <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
-                                <img src="website/assets/images/food.jpg" class="img-fluid radius-image-full" alt="client image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row slider-info">
-                            <div class="col-lg-8 message-info align-self">
-                                <span class="label-blue mb-sm-4 mb-3">Lifestyle</span>
-                                <h3 class="title-big mb-4">To succeed in Life, you need 3 things : a wishbone, a backbone, a
-                                    funny bone.
-                                </h3>
-                                <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
-                                    sit id accusantium officia quod quasi necessitatibus perspiciatis Harum error
-                                    provident quibusdam tenetur. Ut fermentum leo quis sapienet faucibus, at
-                                    scelerisque sem feugiat. Nulla in eros purus.</p>
-                            </div>
-                            <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
-                                <img src="website/assets/images/lifestyle.jpg" class="img-fluid radius-image-full" alt="client image">
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
         <!-- /main-slider -->
+    </section>
+
+    <section>
+
+
+        <div class="w3l-subscribe ">
+            <div class="container py-lg-5 py-md-4">
+                <div class="w3l-subscribe-content text-center bg-clr-white py-md-5 py-2">
+                    <div class="py-5">
+                        <h3 class="section-title-left mb-2">ABOUT US</h3>
+                        <p class="mb-md-5 p-4">The Industrial Development Board (IDB) is the premier state organization which comes under the Ministry of Industries. We are empowered by Industrial Development Act No.36 of 1969 and entrusted with the responsibility of developing of the Industrial Sector in Sri Lanka.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </section>
     <div class="w3l-homeblock2 py-5">
         <div class="container py-lg-5 py-md-4">
@@ -378,6 +291,8 @@ Author URL: http://w3layouts.com
             </div>
         </div>
     </div>
+
+
     <div class="w3l-homeblock2 py-5">
         <div class="container py-lg-5 py-md-4">
             <!-- block -->
@@ -386,78 +301,45 @@ Author URL: http://w3layouts.com
                 <a href="fashiom.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
             <div class="row">
+                @foreach($entrepreneurUsers as $entrepreneurUser)
+                @if($entrepreneurUser->entrepreneur_status == 1)
+
                 <div class="col-lg-4 col-md-6 item">
                     <div class="card">
                         <div class="card-header p-0 position-relative">
                             <a href="#blog-single.html">
-                                <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion1.jpg" alt="Card image cap">
+                                <img class="card-img-bottom d-block radius-image-full" src="images/enterpreneur_images/{{ $entrepreneurUser->picture }}" alt="Card image cap">
                             </a>
                         </div>
                         <div class="card-body blog-details">
-                            <a href="#blog-single.html" class="blog-desc">An easy Guide to buying Denim & My favourite styles
+                            <a href="#blog-single.html" class="blog-desc"> {{ $entrepreneurUser->ownerName }}
                             </a>
                             <div class="author align-items-center">
-                                <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
+                                <img src="images/enterpreneur_images/{{ $entrepreneurUser->picture }}" alt="" class="img-fluid rounded-circle" />
                                 <ul class="blog-meta">
                                     <li>
-                                        <a href="author.html">Isabella ava</a> </a>
+                                        <a href="author.html">{{ $entrepreneurUser->shopName }}</a> </a>
+                                    </li>
+                                    <li>
+                                        <a href="author.html">{{ $entrepreneurUser->location }}</a> </a>
+                                    </li>
+                                    <li>
+                                        <a href="author.html">{{ $entrepreneurUser->category }}</a> </a>
                                     </li>
                                     <li class="meta-item blog-lesson">
-                                        <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                        <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                    <div class="card">
-                        <div class="card-header p-0 position-relative">
-                            <a href="#blog-single.html">
-                                <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion2.jpg" alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="card-body blog-details">
-                            <a href="#blog-single.html" class="blog-desc">The Satin Skirt & How to Wear it all year round fashion
-                            </a>
-                            <div class="author align-items-center">
-                                <img src="website/assets/images/a2.jpg" alt="" class="img-fluid rounded-circle" />
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="author.html">Charlotte mia</a> </a>
-                                    </li>
-                                    <li class="meta-item blog-lesson">
-                                        <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                    <div class="card">
-                        <div class="card-header p-0 position-relative">
-                            <a href="#blog-single.html">
-                                <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion3.jpg" alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="card-body blog-details">
-                            <a href="#blog-single.html" class="blog-desc">What I’ll be Wearing this Party Season & the Festive edit
-                            </a>
-                            <div class="author align-items-center">
-                                <img src="website/assets/images/a3.jpg" alt="" class="img-fluid rounded-circle" />
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="author.html">Elizabeth</a> </a>
-                                    </li>
-                                    <li class="meta-item blog-lesson">
-                                        <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                @else
+                <p>No record found</p>
+                @endif
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -471,9 +353,8 @@ Author URL: http://w3layouts.com
                 <a href="beauty.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
             <div class="row">
-
                 @foreach($event as $item)
-
+                @if($item)
                 <div class="col-lg-6 mt-4">
                     <div class="bg-clr-white hover-box">
                         <div class="row">
@@ -504,8 +385,12 @@ Author URL: http://w3layouts.com
                         </div>
                     </div>
                 </div>
-
+                @else
+                <p>No record found</p>
+                @endif
                 @endforeach
+
+
                 <div class="col-lg-6 mt-4">
                     <div class="bg-clr-white hover-box">
                         <div class="row">

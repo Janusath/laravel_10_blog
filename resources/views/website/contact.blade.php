@@ -9,7 +9,7 @@ Author URL: http://w3layouts.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>NewsBlog a Blog Category Bootstrap Responsive Website Template | Contact : W3layouts</title>
+    <title>Contact</title>
 
     <link href="//fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
@@ -49,23 +49,24 @@ Author URL: http://w3layouts.com
 						</form>
 					</div>
 				</nav>
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="{{route('website')}}">Home</a>
-					</li>
+			    <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{route('home')}}">Home</a>
+                    </li>
 
                     <li class="nav-item @@contact__active">
-						<a class="nav-link" href="beauty.html">Beauty</a>
-					</li><li class="nav-item @@contact__active">
-						<a class="nav-link" href="fashion.html">Fashion</a>
-					</li>
-					<li class="nav-item active @@contact__active">
-						<a class="nav-link" href="{{route('contact')}}">Contact</a>
-					</li>
+                        <a class="nav-link" href="{{route('event_post')}}">Event</a>
+                    </li>
                     <li class="nav-item @@contact__active">
-                        <a href="{{route('entrepreneur_login')}}" class=" btn btn-primary">Login</a>
-					</li>
-				</ul>
+                        <a class="nav-link" href="fashion.html">Fashion</a>
+                    </li>
+                    <li class="nav-item @@contact__active">
+                        <a class="nav-link" href="{{route('contact')}}">Contact</a>
+                    </li>
+                    <li class="nav-item @@contact__active">
+                        <a href="{{route('entrepreneur_login')}}" class="btn btn-primary">Login</a>
+                    </li>
+                </ul>
 			</div>
 			<!-- toggle switch for light and dark theme -->
 			<div class="mobile-position">

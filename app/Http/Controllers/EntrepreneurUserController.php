@@ -94,7 +94,7 @@ class EntrepreneurUserController extends Controller
             $data->location = $request->location;
             $data->phoneNo = $request->phoneNo;
             $data->email = $request->email;
-            $data->password = $request->email;
+            $data->password = $request->password;
 
             if ($request->file('picture')) {
                 $file = $request->file('picture');

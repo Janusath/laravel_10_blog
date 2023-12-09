@@ -43,7 +43,7 @@ class EmailController extends Controller
         $insertRecord ->phoneNo = trim($request->phoneNo);
         $insertRecord ->message = trim($request->message);
         $insertRecord ->save();
-        Mail::to('mohamedahshan0056@gmail.com')->send(new ContactFormMail($request));
+        Mail::to('sajahaam21@gmail.com')->send(new ContactFormMail($request));
         return redirect()->back()->with('success', 'Your Email submitted successfully!');
     }
 

@@ -100,6 +100,8 @@
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
 
+
+
                 <img id="showImage"  class="rounded avatar-lg" src="{{
                     (!empty($user->picture))? url('images/enterpreneur_images/' . $user->picture): url('images/enterpreneur_images/202311281926user.jpg') }}" alt="Card image cap">
 
@@ -147,7 +149,7 @@
                     <div class="row mb-3">
                         <label for="email" class="col-md-4 col-lg-3 col-form-label">Password</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="password" type="text" class="form-control" id="password" value="{{ $user->password }}">
+                          <input name="password" type="text" class="form-control" id="password"  value="{{ $user->password }}">
                         </div>
                       </div>
 

@@ -38,7 +38,8 @@ Route::fallback(function()
 
 Route::get('/',[AdminUserController::class,'login'])->name('admin_login');
 
-Route::get('/blog',[WebsiteController::class,'website'])->name('website');
+Route::get('/home',[WebsiteController::class,'home'])->name('home');
+Route::get('/event_post',[WebsiteController::class,'event'])->name('event_post');
 Route::get('/contact',[WebsiteController::class,'contact'])->name('contact');
 
 Route::get('/email',[EmailController::class,'index'])->name('email');
