@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\EntrepreneurUser;
 use App\Models\Event;
+use App\Models\Production;
+use App\Models\TimeSlot;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
     public function home()
     {
-        $event = Event::all();
+        $events = Event::all();
+        $productions = Production::all();
+        $timeSlots = TimeSlot::all();
         $entrepreneurUsers = EntrepreneurUser::all();
-        return view('website.home',compact('entrepreneurUsers','event'));
+        return view('website.home',compact('entrepreneurUsers','events','productions','timeSlots'));
     }
 
     public function event()

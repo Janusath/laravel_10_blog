@@ -16,6 +16,7 @@ Author URL: http://w3layouts.com
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="website/assets/css/style-starter.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     <!-- header -->
@@ -327,7 +328,9 @@ Author URL: http://w3layouts.com
                                         <a href="author.html">{{ $entrepreneurUser->category }}</a> </a>
                                     </li>
                                     <li class="meta-item blog-lesson">
-                                        <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                        <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#entrepreneurModal">
+                                            view more
+                                          </button></span>
                                     </li>
                                 </ul>
                             </div>
@@ -343,17 +346,121 @@ Author URL: http://w3layouts.com
             </div>
         </div>
     </div>
+<!-- Button trigger modal -->
+  <!-- event Modal -->
+  <div class="modal fade" id="eventeModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="eventModalLabel">Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            @foreach($events as $event)
+            @if($event->businessReNo==5)
 
+            <h4>Events</h4>
+            <h6> Title: {{ $event->title }}</h6>
+            <h6> SubTitle: {{ $event->subTitle }}</h6>
+            <h6> Author: {{ $event->author }}</h6>
+            <h6> Aategory: {{ $event->category }}</h6>
+            <h6> Description: {{ $event->description }}</h6>
+            image: <img src="storage/images/admin_images/{{ $event->image }}" style="width: 50px" alt="" class="img-fluid rounded-circle" />
+
+            @else
+            {{-- <p>No record found</p> --}}
+            @endif
+            @endforeach
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!--entrepreneur Modal -->
+  <div class="modal fade" id="entrepreneurModal" tabindex="-1" aria-labelledby="entrepreneurModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="entrepreneurModalLabel">Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            @foreach($entrepreneurUsers as $entrepreneurUser)
+                @if($entrepreneurUser->entrepreneur_status == 1)
+
+            <h4>Entrepreneur</h4>
+            <ul>
+                <li><h6>OwnerName: {{ $entrepreneurUser->ownerName }}</h6></li>
+                <li><h6>ShopName: {{ $entrepreneurUser->shopName }}</h6></li>
+                <li><h6>Location: {{ $entrepreneurUser->location }}</h6></li>
+                <li><h6>category: {{ $entrepreneurUser->category }}</h6></li>
+                <li><h6>Location: {{ $entrepreneurUser->location }}</h6></li>
+                <li><h6>PhoneNo: {{ $entrepreneurUser->phoneNo }}</h6></li>
+                <li><h6>Location: {{ $entrepreneurUser->email  }}</h6></li>
+                <li> image: <img src="images/enterpreneur_images/{{ $entrepreneurUser->picture }}" style="width: 50px" alt="" class="img-fluid rounded-circle" /></li>
+            </ul>
+
+            @else
+            <p>No record found</p>
+            @endif
+            @endforeach
+            <hr>
+            @foreach($productions as $production)
+            @if($production->businessReNo==5)
+
+            <h4>Production</h4>
+            <ul>
+                <li><h6>Name: {{ $production->name }}</h6></li>
+                <li><h6>Category: {{ $production->category }}</h6></li>
+                <li><h6>Details: {{ $production->details }}</h6></li>
+                <li> image: <img src="storage/images/enterpreneur_images/{{ $production->image }}" style="width: 50px" alt="" class="img-fluid rounded-circle" /></li>
+            </ul>
+
+            @else
+            <p>No record found</p>
+            @endif
+            @endforeach
+
+            <hr>
+
+            @foreach($timeSlots as $timeSlot)
+            @if($timeSlot->businessReNo==5)
+
+            <h4>timeSlot</h4>
+            <ul>
+                <li class="pb-2">Monday: {{ $timeSlot->monday }}</li>
+                <li class="pb-2">Tuesday: {{ $timeSlot->tuesday }}</li>
+                <li class="pb-2">Wednesday: {{ $timeSlot->wednesday}}</li>
+                <li class="pb-2">Thursday: {{ $timeSlot->thursday}}</li>
+                <li class="pb-2">Friday: {{ $timeSlot->friday}}</li>
+                <li class="pb-2">Saturday: {{ $timeSlot->saturday}}</li>
+                <li class="pb-2">Sunday: {{ $timeSlot->sunday}}</li>
+            </ul>
+
+            @else
+            <p>No record found</p>
+            @endif
+            @endforeach
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+    </div>
+  </div>
 
     <div class="w3l-homeblock2 w3l-homeblock5 py-5">
         <div class="container py-lg-5 py-md-4">
             <!-- block -->
             <div class="left-right">
-                <h3 class="section-title-left mb-sm-4 mb-2"> Beauty</h3>
+                <h3 class="section-title-left mb-sm-4 mb-2"> Events</h3>
                 <a href="beauty.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
             <div class="row">
-                @foreach($event as $item)
+                @foreach($events as $item)
                 @if($item)
                 <div class="col-lg-6 mt-4">
                     <div class="bg-clr-white hover-box">
@@ -364,20 +471,17 @@ Author URL: http://w3layouts.com
                                 </a>
                             </div>
                             <div class="col-sm-7 card-body blog-details align-self">
-                                <a href="#blog-single.html" class="blog-desc">{{ $item->title }}</a> <br>
-                                <a href="author.html" class="blog-desc">{{ $item->subTitle }}</a> </a>
-                                <a href="author.html" class="blog-desc">{{ $item->author }}</a> </a>
-                                <a href="author.html" class="blog-desc">{{ $item->category }}</a> </a>
-                                <a href="author.html" class="blog-desc">{{ $item->description }}</a> </a>
+                                <a href="#blog-single.html" class="blog-desc">{{ $item->title }}</a>
                                 <div class="author align-items-center">
                                     <img src="storage/images/admin_images/{{ $item->image }}" alt="" class="img-fluid rounded-circle" />
                                     <ul class="blog-meta">
                                         <li>
-                                            <a href="author.html">Isabella ava</a> </a>
-
+                                            <a href="author.html">{{ $item->subTitle }}</a> </a>
                                         </li>
                                         <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> {{ $item->created_at }}</span>
+                                            <span class="meta-value"> {{ $item->created_at }}</span>. <span class="meta-value ml-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventeModal">
+                                                view more
+                                              </button></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -391,7 +495,7 @@ Author URL: http://w3layouts.com
                 @endforeach
 
 
-                <div class="col-lg-6 mt-4">
+                {{-- <div class="col-lg-6 mt-4">
                     <div class="bg-clr-white hover-box">
                         <div class="row">
                             <div class="col-sm-5 position-relative">
@@ -415,7 +519,7 @@ Author URL: http://w3layouts.com
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -635,7 +739,7 @@ Author URL: http://w3layouts.com
 
     <!-- bootstrap -->
     <script src="website/assets/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 <!-- Template Javascript -->

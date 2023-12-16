@@ -30,8 +30,28 @@
                                             <input type="text" name="name" id="name" class="form-control" placeholder="Product name" required>
                                         </div>
                                         <div class="my-3">
-                                            <label for="category">Category</label>
-                                            <input type="text" id="category" name="category" class="form-control" placeholder="Category" required>
+                                            <div class="my-3">
+                                                <label for="edit_category">Category</label>
+                                                <select class="form-select" name="category" id="category" aria-label="Default select example" required>
+                                                    <option selected disabled>select category </option>
+                                                    <option value="Clothing, Shoes & Accessories">Clothing, Shoes & Accessories</option>
+                                                    <option value="Home & Patio">Home & Patio</option>
+                                                    <option value="Baby">Baby</option>
+                                                    <option value="Electronics">Electronics</option>
+                                                    <option value="School & Office">School & Office</option>
+                                                    <option value="Toys">Toys</option>
+                                                    <option value="Sports, Fitness & Outdoors">Sports, Fitness & Outdoors</option>
+                                                    <option value="Entertainment">Entertainment</option>
+                                                    <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+                                                    <option value="Health">Health</option>
+                                                    <option value="Household Essentials">Household Essentials</option>
+                                                    <option value="Pets">Pets</option>
+                                                    <option value="Grocery">Grocery</option>
+                                                    <option value="Celebrations & more">Celebrations & more</option>
+                                                    <option value="Deals & more">Deals & more</option>
+                                                    <option value="Services">Services</option>
+                                                  </select>
+                                            </div>
                                         </div>
                                         <div class="my-3">
                                             <label for="details">Details</label>
@@ -72,7 +92,25 @@
                                         </div>
                                         <div class="my-3">
                                             <label for="edit_category">Category</label>
-                                            <input type="text" id="edit_category" name="category" class="form-control" placeholder="category" required>
+                                            <select class="form-select" name="category" id="edit_category" aria-label="Default select example" required>
+                                                <option selected disabled>select category </option>
+                                                <option value="Clothing, Shoes & Accessories">Clothing, Shoes & Accessories</option>
+                                                <option value="Home & Patio">Home & Patio</option>
+                                                <option value="Baby">Baby</option>
+                                                <option value="Electronics">Electronics</option>
+                                                <option value="School & Office">School & Office</option>
+                                                <option value="Toys">Toys</option>
+                                                <option value="Sports, Fitness & Outdoors">Sports, Fitness & Outdoors</option>
+                                                <option value="Entertainment">Entertainment</option>
+                                                <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+                                                <option value="Health">Health</option>
+                                                <option value="Household Essentials">Household Essentials</option>
+                                                <option value="Pets">Pets</option>
+                                                <option value="Grocery">Grocery</option>
+                                                <option value="Celebrations & more">Celebrations & more</option>
+                                                <option value="Deals & more">Deals & more</option>
+                                                <option value="Services">Services</option>
+                                              </select>
                                         </div>
                                         <div class="my-3">
                                             <label for="edit_details">Details</label>

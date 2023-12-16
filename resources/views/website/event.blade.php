@@ -389,7 +389,7 @@ Author URL: http://w3layouts.com
         <div class="container py-lg-5 py-md-4">
             <!-- block -->
             <div class="left-right">
-                <h3 class="section-title-left mb-sm-4 mb-2"> Beauty</h3>
+                <h3 class="section-title-left mb-sm-4 mb-2"> Events</h3>
                 <a href="beauty.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
             <div class="row">
@@ -404,24 +404,18 @@ Author URL: http://w3layouts.com
                                 </a>
                             </div>
                             <div class="col-sm-7 card-body blog-details align-self">
-                                <p class="blog-desc">{{ $item->title }}</p>
-                                <p class="blog-desc">{{ $item->subTitle }}</p>
-                                <p class="blog-desc">{{ $item->category }}</p>
-                                <p class="blog-desc">{{ $item->description }}</p>
-                                <p class="blog-desc">{{ $item->title }}</p>
+                                <a href="#blog-single.html" class="blog-desc">{{ $item->title }}</a>
                                 <div class="author align-items-center">
                                     <img src="storage/images/admin_images/{{ $item->image }}" alt="" class="img-fluid rounded-circle" />
                                     <ul class="blog-meta">
                                         <li>
-                                            <a href="author.html">{{ $item->author }}</a> </a>
-
+                                            <a href="author.html">{{ $item->subTitle }}</a> </a>
                                         </li>
                                         <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> {{ $item->created_at }}</span>
+                                            <span class="meta-value"> {{ $item->created_at }}</span>. <span class="meta-value ml-2"></span>
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="#" id="' . $event->id . '" class="btn btn-primary mx-1 editIcon" data-bs-toggle="modal" data-bs-target="#editEventModal"><i class="bi-pencil-square h6"></i></a>
                             </div>
                         </div>
                     </div>
@@ -432,7 +426,7 @@ Author URL: http://w3layouts.com
                 @endforeach
 
 
-                <div class="col-lg-6 mt-4">
+                {{-- <div class="col-lg-6 mt-4">
                     <div class="bg-clr-white hover-box">
                         <div class="row">
                             <div class="col-sm-5 position-relative">
@@ -456,7 +450,7 @@ Author URL: http://w3layouts.com
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
