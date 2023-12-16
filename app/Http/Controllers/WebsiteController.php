@@ -19,6 +19,15 @@ class WebsiteController extends Controller
         return view('website.home',compact('entrepreneurUsers','events','productions','timeSlots'));
     }
 
+    public function edit($id)
+    {
+            $editEvent = Event::find($id);
+            return response()->json($editEvent);
+
+    }
+
+
+
     public function event()
     {
         $entrepreneurUsers = EntrepreneurUser::all();

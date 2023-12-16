@@ -13,7 +13,7 @@ Author URL: http://w3layouts.com
 
     <link href="//fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Template CSS -->
     <link rel="stylesheet" href="website/assets/css/style-starter.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -346,38 +346,8 @@ Author URL: http://w3layouts.com
             </div>
         </div>
     </div>
-<!-- Button trigger modal -->
-  <!-- event Modal -->
-  <div class="modal fade" id="eventeModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="eventModalLabel">Details</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            @foreach($events as $event)
-            @if($event->businessReNo==5)
-
-            <h4>Events</h4>
-            <h6> Title: {{ $event->title }}</h6>
-            <h6> SubTitle: {{ $event->subTitle }}</h6>
-            <h6> Author: {{ $event->author }}</h6>
-            <h6> Aategory: {{ $event->category }}</h6>
-            <h6> Description: {{ $event->description }}</h6>
-            image: <img src="storage/images/admin_images/{{ $event->image }}" style="width: 50px" alt="" class="img-fluid rounded-circle" />
-
-            @else
-            {{-- <p>No record found</p> --}}
-            @endif
-            @endforeach
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
   <!--entrepreneur Modal -->
   <div class="modal fade" id="entrepreneurModal" tabindex="-1" aria-labelledby="entrepreneurModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
@@ -479,9 +449,11 @@ Author URL: http://w3layouts.com
                                             <a href="author.html">{{ $item->subTitle }}</a> </a>
                                         </li>
                                         <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> {{ $item->created_at }}</span>. <span class="meta-value ml-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventeModal">
+                                            <span class="meta-value"> {{ $item->created_at }}</span>. <span class="meta-value ml-2"></span>
+
+                                            <button type="button" value="{{ $item->id }}" class="editbtn btn btn-primary">
                                                 view more
-                                              </button></span>
+                                              </button>
                                         </li>
                                     </ul>
                                 </div>
@@ -493,7 +465,59 @@ Author URL: http://w3layouts.com
                 <p>No record found</p>
                 @endif
                 @endforeach
+                <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Event</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="text-center">
+                                <p class="d-inline">Date: <h6 class="d-inline" id="created_at"></h6></p>
+                                <p class="d-inline">Title: <h6 class="d-inline" id="title"></h6></p>
+                                <p class="d-inline">Sub Title: <h6 class="d-inline" id="subTitle"></h6></p>
+                                <p class="d-inline">Author: <h6 class="d-inline" id="author"></h6></p>
+                                <p class="d-inline">Category: <h6 class="d-inline" id="category"></h6></p>
+                                <p class="d-inline">Description: <h6 class="d-inline" id="description"></h6></p>
+                                <p class="d-inline">Image: <h6 class="d-inline" id="image"></h6></p>
+                            </div>
 
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+<script>
+$(document).ready(function () {
+    $(document).on('click', '.editbtn', function () {
+        var id = $(this).val();
+        $('#editEventModal').modal('show');
+        console.log('Edit button clicked. ID:', id);
+        $.ajax({
+            url: '/editEvent/' + id,
+            method: 'get',
+            success: function (response) {
+                console.log('AJAX response:', response);
+                $("#created_at").text(response.created_at);
+                $("#title").text(response.title);
+                $("#edit_title").text(response.title);
+                $("#subTitle").text(response.subTitle);
+                $("#author").text(response.author);
+                $("#category").text(response.category);
+                $("#description").text(response.description);
+                $("#image").html(
+                  `<img src="storage/images/admin_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
+
+            }
+        });
+    });
+});
+
+
+</script>
 
                 {{-- <div class="col-lg-6 mt-4">
                     <div class="bg-clr-white hover-box">
@@ -692,7 +716,7 @@ Author URL: http://w3layouts.com
     <!-- disable body scroll which navbar is in active -->
 
     <!-- Template JavaScript -->
-    <script src="website/assets/js/jquery-3.3.1.min.js"></script>
+
 
     <!-- theme changer js -->
     <script src="website/assets/js/theme-change.js"></script>

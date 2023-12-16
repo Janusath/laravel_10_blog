@@ -41,6 +41,7 @@ Route::get('/',[AdminUserController::class,'login'])->name('admin_login');
 Route::get('/home',[WebsiteController::class,'home'])->name('home');
 Route::get('/event_post',[WebsiteController::class,'event'])->name('event_post');
 Route::get('/contact',[WebsiteController::class,'contact'])->name('contact');
+Route::get('editEvent/{id}', [WebsiteController::class, 'edit']);
 
 Route::get('/email',[EmailController::class,'index'])->name('email');
 Route::get('/email_show', [EmailController::class, 'show'])->name('email_show');
