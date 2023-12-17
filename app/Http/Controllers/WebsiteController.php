@@ -26,6 +26,13 @@ class WebsiteController extends Controller
 
     }
 
+    public function edit1($id)
+    {
+            $editEntrepreneurUser = EntrepreneurUser::find($id);
+            return response()->json($editEntrepreneurUser);
+
+    }
+
 
 
     public function event()
@@ -34,6 +41,8 @@ class WebsiteController extends Controller
         $event = Event::all();
         return view('website.event',compact('event','entrepreneurUsers'));
     }
+
+
 
     public function contact()
     {

@@ -328,9 +328,10 @@ Author URL: http://w3layouts.com
                                         <a href="author.html">{{ $entrepreneurUser->category }}</a> </a>
                                     </li>
                                     <li class="meta-item blog-lesson">
-                                        <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#entrepreneurModal">
+                                        <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"></span>
+                                        <button type="button" value="{{ $entrepreneurUser->id }}" class="editbtn1 btn btn-primary" data-bs-toggle="modal">
                                             view more
-                                          </button></span>
+                                          </button>
                                     </li>
                                 </ul>
                             </div>
@@ -358,63 +359,19 @@ Author URL: http://w3layouts.com
         </div>
         <div class="modal-body">
 
-            @foreach($entrepreneurUsers as $entrepreneurUser)
-                @if($entrepreneurUser->entrepreneur_status == 1)
-
             <h4>Entrepreneur</h4>
-            <ul>
-                <li><h6>OwnerName: {{ $entrepreneurUser->ownerName }}</h6></li>
-                <li><h6>ShopName: {{ $entrepreneurUser->shopName }}</h6></li>
-                <li><h6>Location: {{ $entrepreneurUser->location }}</h6></li>
-                <li><h6>category: {{ $entrepreneurUser->category }}</h6></li>
-                <li><h6>Location: {{ $entrepreneurUser->location }}</h6></li>
-                <li><h6>PhoneNo: {{ $entrepreneurUser->phoneNo }}</h6></li>
-                <li><h6>Location: {{ $entrepreneurUser->email  }}</h6></li>
-                <li> image: <img src="images/enterpreneur_images/{{ $entrepreneurUser->picture }}" style="width: 50px" alt="" class="img-fluid rounded-circle" /></li>
-            </ul>
-
-            @else
-            <p>No record found</p>
-            @endif
-            @endforeach
-            <hr>
-            @foreach($productions as $production)
-            @if($production->businessReNo==5)
-
-            <h4>Production</h4>
-            <ul>
-                <li><h6>Name: {{ $production->name }}</h6></li>
-                <li><h6>Category: {{ $production->category }}</h6></li>
-                <li><h6>Details: {{ $production->details }}</h6></li>
-                <li> image: <img src="storage/images/enterpreneur_images/{{ $production->image }}" style="width: 50px" alt="" class="img-fluid rounded-circle" /></li>
-            </ul>
-
-            @else
-            <p>No record found</p>
-            @endif
-            @endforeach
-
-            <hr>
-
-            @foreach($timeSlots as $timeSlot)
-            @if($timeSlot->businessReNo==5)
-
-            <h4>timeSlot</h4>
-            <ul>
-                <li class="pb-2">Monday: {{ $timeSlot->monday }}</li>
-                <li class="pb-2">Tuesday: {{ $timeSlot->tuesday }}</li>
-                <li class="pb-2">Wednesday: {{ $timeSlot->wednesday}}</li>
-                <li class="pb-2">Thursday: {{ $timeSlot->thursday}}</li>
-                <li class="pb-2">Friday: {{ $timeSlot->friday}}</li>
-                <li class="pb-2">Saturday: {{ $timeSlot->saturday}}</li>
-                <li class="pb-2">Sunday: {{ $timeSlot->sunday}}</li>
-            </ul>
-
-            @else
-            <p>No record found</p>
-            @endif
-            @endforeach
+            <div class="text-center">
+                <p class="d-inline">Date: <h6 class="d-inline" id="created_at"></h6></p>
+                <p class="d-inline">Owner Name: <h6 class="d-inline" id="ownerName"></h6></p>
+                <p class="d-inline">Shop Name: <h6 class="d-inline" id="shopName"></h6></p>
+                <p class="d-inline">location: <h6 class="d-inline" id="location"></h6></p>
+                <p class="d-inline">Category: <h6 class="d-inline" id="category"></h6></p>
+                <p class="d-inline">Phone No: <h6 class="d-inline" id="phoneNo"></h6></p>
+                <p class="d-inline">Email: <h6 class="d-inline" id="email"></h6></p>
+                <p class="d-inline">Image: <h6 class="d-inline" id="picture"></h6></p>
+            </div>
         </div>
+
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
@@ -510,6 +467,29 @@ $(document).ready(function () {
                 $("#description").text(response.description);
                 $("#image").html(
                   `<img src="storage/images/admin_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
+
+            }
+        });
+    });
+
+    $(document).on('click', '.editbtn1', function () {
+        var id = $(this).val();
+        $('#entrepreneurModal').modal('show');
+        console.log('Edit button clicked. ID:', id);
+        $.ajax({
+            url: '/editEntrepreneur/' + id,
+            method: 'get',
+            success: function (response) {
+                console.log('AJAX response:', response);
+                $("#created_at").text(response.created_at);
+                $("#ownerName").text(response.ownerName);
+                $("#shopName").text(response.shopName);
+                $("#location").text(response.location);
+                $("#category").text(response.category);
+                $("#phoneNo").text(response.phoneNo);
+                $("#email").text(response.email);
+                $("#picture").html(
+                  `<img src="images/enterpreneur_images/${response.picture}" width="100" class="img-fluid img-thumbnail">`);
 
             }
         });
