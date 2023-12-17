@@ -358,8 +358,6 @@ Author URL: http://w3layouts.com
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
-            <h4>Entrepreneur</h4>
             <div class="text-center">
                 <p class="d-inline">Date: <h6 class="d-inline" id="created_at"></h6></p>
                 <p class="d-inline">Owner Name: <h6 class="d-inline" id="ownerName"></h6></p>
@@ -427,19 +425,18 @@ Author URL: http://w3layouts.com
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Event</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="text-center">
-                                <p class="d-inline">Date: <h6 class="d-inline" id="created_at"></h6></p>
-                                <p class="d-inline">Title: <h6 class="d-inline" id="title"></h6></p>
-                                <p class="d-inline">Sub Title: <h6 class="d-inline" id="subTitle"></h6></p>
-                                <p class="d-inline">Author: <h6 class="d-inline" id="author"></h6></p>
-                                <p class="d-inline">Category: <h6 class="d-inline" id="category"></h6></p>
-                                <p class="d-inline">Description: <h6 class="d-inline" id="description"></h6></p>
-                                <p class="d-inline">Image: <h6 class="d-inline" id="image"></h6></p>
+                            <div class="modal-body">
+                                <div class="text-center">
+                                    <p class="d-inline">Date: <h6 class="d-inline" id="eventCreated_at"></h6></p>
+                                    <p class="d-inline">Title: <h6 class="d-inline" id="title"></h6></p>
+                                    <p class="d-inline">Sub Title: <h6 class="d-inline" id="subTitle"></h6></p>
+                                    <p class="d-inline">Author: <h6 class="d-inline" id="author"></h6></p>
+                                    <p class="d-inline">Category: <h6 class="d-inline" id="eventCategory"></h6></p>
+                                    <p class="d-inline">Description: <h6 class="d-inline" id="description"></h6></p>
+                                    <p class="d-inline">Image: <h6 class="d-inline" id="image"></h6></p>
+                                </div>
                             </div>
-
-
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
@@ -458,13 +455,12 @@ $(document).ready(function () {
             method: 'get',
             success: function (response) {
                 console.log('AJAX response:', response);
-                $("#created_at").text(response.created_at);
+                $("#eventCreated_at").text(response.created_at);
                 $("#title").text(response.title);
-                $("#edit_title").text(response.title);
                 $("#subTitle").text(response.subTitle);
                 $("#author").text(response.author);
-                $("#category").text(response.category);
                 $("#description").text(response.description);
+                $("#eventCategory").text(response.category);
                 $("#image").html(
                   `<img src="storage/images/admin_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
 
