@@ -26,11 +26,20 @@ class WebsiteController extends Controller
 
     }
 
-    public function edit1($id)
+    public function edit1($businessReNo)
     {
-            $editEntrepreneurUser = EntrepreneurUser::find($id);
-            return response()->json($editEntrepreneurUser);
+        try {
+            $editEntrepreneurUser = Event::where('businessReNo', $businessReNo)->get();
 
+            dd($editEntrepreneurUser);
+            if (!$editEntrepreneurUser) {
+                return response()->json(['error' => 'Record not found.']);
+            }
+
+            return response()->json($editEntrepreneurUser);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
 
 
@@ -38,8 +47,8 @@ class WebsiteController extends Controller
     public function event()
     {
         $entrepreneurUsers = EntrepreneurUser::all();
-        $event = Event::all();
-        return view('website.event',compact('event','entrepreneurUsers'));
+        $events = Event::all();
+        return view('website.event',compact('events','entrepreneurUsers'));
     }
 
 

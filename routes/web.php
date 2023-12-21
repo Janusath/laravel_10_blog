@@ -42,7 +42,7 @@ Route::get('/home',[WebsiteController::class,'home'])->name('home');
 Route::get('/event_post',[WebsiteController::class,'event'])->name('event_post');
 Route::get('/contact',[WebsiteController::class,'contact'])->name('contact');
 Route::get('editEvent/{id}', [WebsiteController::class, 'edit']);
-Route::get('editEntrepreneur/{id}', [WebsiteController::class, 'edit1']);
+Route::get('editEntrepreneur/{businessReNo}', [WebsiteController::class, 'edit1']);
 
 Route::get('/email',[EmailController::class,'index'])->name('email');
 Route::get('/email_show', [EmailController::class, 'show'])->name('email_show');

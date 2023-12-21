@@ -13,7 +13,7 @@ Author URL: http://w3layouts.com
 
     <link href="//fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Template CSS -->
     <link rel="stylesheet" href="website/assets/css/style-starter.css">
 </head>
@@ -47,11 +47,11 @@ Author URL: http://w3layouts.com
                         </div>
                     </nav>
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route('home')}}">Home</a>
                         </li>
 
-                        <li class="nav-item @@contact__active">
+                        <li class="nav-item active @@contact__active">
                             <a class="nav-link" href="{{route('event_post')}}">Event</a>
                         </li>
                         <li class="nav-item @@contact__active">
@@ -125,77 +125,6 @@ Author URL: http://w3layouts.com
             {{-- <a href="{{route('entrepreneur_login')}}" class="btn btn-primary px-4">Login</a> --}}
 
 
-        </div>
-
-
-        <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Event</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="#" method="POST" id="edit_event_form" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="event_id" id="event_id">
-                        <input type="hidden" name="event_image" id="event_image">
-                        <div class="modal-body p-4 bg-light">
-
-                           <div class="row">
-                            <div class="col-md-6 my-3">
-                                <label for="title">Title</label>
-                                <input type="text" name="title" id="edit_title" class="form-control" placeholder="title" required>
-                            </div>
-                            <div class="col-md-6 my-3">
-                                <label for="subTitle">Sub Title</label>
-                                <input type="text" name="subTitle" id="edit_subTitle" class="form-control" placeholder="subTitle" required>
-                            </div>
-                           </div>
-                            <div class="my-3">
-                                <label for="author">Author</label>
-                                <input type="text" name="author" id="edit_author" class="form-control" placeholder="author" required>
-                            </div>
-                            <div class="my-3">
-                                <label for="category" class="form-label">category</label>
-                                <select class="form-select" name="category" id="edit_category" aria-label="Default select example" required>
-                                    <option selected disabled>select category </option>
-                                    <option value="Clothing, Shoes & Accessories">Clothing, Shoes & Accessories</option>
-                                    <option value="Home & Patio">Home & Patio</option>
-                                    <option value="Baby">Baby</option>
-                                    <option value="Electronics">Electronics</option>
-                                    <option value="School & Office">School & Office</option>
-                                    <option value="Toys">Toys</option>
-                                    <option value="Sports, Fitness & Outdoors">Sports, Fitness & Outdoors</option>
-                                    <option value="Entertainment">Entertainment</option>
-                                    <option value="Beauty & Personal Care">Beauty & Personal Care</option>
-                                    <option value="Health">Health</option>
-                                    <option value="Household Essentials">Household Essentials</option>
-                                    <option value="Pets">Pets</option>
-                                    <option value="Grocery">Grocery</option>
-                                    <option value="Celebrations & more">Celebrations & more</option>
-                                    <option value="Deals & more">Deals & more</option>
-                                    <option value="Services">Services</option>
-                                  </select>
-                            </div>
-                            <div class="my-3">
-                                <label for="description">Description</label>
-                                <input type="text" name="description" id="edit_description" class="form-control" placeholder="description" required>
-                            </div>
-                            <div class="my-3">
-                                <label for="image">Select Image</label>
-                                <input type="file" name="image" id="image" class="form-control">
-                            </div>
-                            <div class="mt-2" id="image">
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" id="edit_event_btn" class="btn btn-success">Update Event</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
         </div>
     </section>
@@ -393,7 +322,7 @@ Author URL: http://w3layouts.com
                 <a href="beauty.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
             <div class="row">
-                @foreach($event as $item)
+                @foreach($events as $item)
                 @if($item)
                 <div class="col-lg-6 mt-4">
                     <div class="bg-clr-white hover-box">
@@ -413,6 +342,10 @@ Author URL: http://w3layouts.com
                                         </li>
                                         <li class="meta-item blog-lesson">
                                             <span class="meta-value"> {{ $item->created_at }}</span>. <span class="meta-value ml-2"></span>
+
+                                            <button type="button" value="{{ $item->id }}" class="editbtn btn btn-primary">
+                                                view more
+                                            </button>
                                         </li>
                                     </ul>
                                 </div>
@@ -424,36 +357,68 @@ Author URL: http://w3layouts.com
                 <p>No record found</p>
                 @endif
                 @endforeach
-
-
-                {{-- <div class="col-lg-6 mt-4">
-                    <div class="bg-clr-white hover-box">
-                        <div class="row">
-                            <div class="col-sm-5 position-relative">
-                                <a href="#blog-single.html" class="image-mobile">
-                                    <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/beauty4.jpg" alt="Card image cap">
-                                </a>
+                <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Event</h5>
                             </div>
-                            <div class="col-sm-7 card-body blog-details align-self">
-                                <a href="#blog-single.html" class="blog-desc">How our dreams should shine and spray beauty to us.</a>
-                                <div class="author align-items-center">
-                                    <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <a href="author.html">Isabella ava</a> </a>
-                                        </li>
-                                        <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                        </li>
-                                    </ul>
+                            <div class="modal-body">
+                                <div class="text-center">
+                                    <p class="d-inline">Date: <h6 class="d-inline" id="eventCreated_at"></h6>
+                                    </p>
+                                    <p class="d-inline">Title: <h6 class="d-inline" id="title"></h6>
+                                    </p>
+                                    <p class="d-inline">Sub Title: <h6 class="d-inline" id="subTitle"></h6>
+                                    </p>
+                                    <p class="d-inline">Author: <h6 class="d-inline" id="author"></h6>
+                                    </p>
+                                    <p class="d-inline">Category: <h6 class="d-inline" id="eventCategory"></h6>
+                                    </p>
+                                    <p class="d-inline">Description: <h6 class="d-inline" id="description"></h6>
+                                    </p>
+                                    <p class="d-inline">Image: <h6 class="d-inline" id="image"></h6>
+                                    </p>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                            </form>
                         </div>
                     </div>
-                </div> --}}
+                </div>
+                <script>
+                    $(document).ready(function() {
+                        $(document).on('click', '.editbtn', function() {
+                            var id = $(this).val();
+                            $('#editEventModal').modal('show');
+                            console.log('Edit button clicked. ID:', id);
+                            $.ajax({
+                                url: '/editEvent/' + id
+                                , method: 'get'
+                                , success: function(response) {
+                                    console.log('AJAX response:', response);
+                                    $("#eventCreated_at").text(response.created_at);
+                                    $("#title").text(response.title);
+                                    $("#subTitle").text(response.subTitle);
+                                    $("#author").text(response.author);
+                                    $("#description").text(response.description);
+                                    $("#eventCategory").text(response.category);
+                                    $("#image").html(
+                                        `<img src="storage/images/admin_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
+
+                                }
+                            });
+                        });
+
+                    });
+
+                </script>
             </div>
         </div>
     </div>
+
     <div class="w3l-homeblock2 w3l-homeblock6 py-5">
         <div class="container-fluid px-sm-5 py-lg-5 py-md-4">
             <!-- block -->
@@ -623,7 +588,7 @@ Author URL: http://w3layouts.com
     <!-- disable body scroll which navbar is in active -->
 
     <!-- Template JavaScript -->
-    <script src="website/assets/js/jquery-3.3.1.min.js"></script>
+
 
     <!-- theme changer js -->
     <script src="website/assets/js/theme-change.js"></script>
@@ -670,7 +635,7 @@ Author URL: http://w3layouts.com
 
     <!-- bootstrap -->
     <script src="website/assets/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 <!-- Template Javascript -->

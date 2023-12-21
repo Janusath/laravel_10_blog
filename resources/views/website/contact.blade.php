@@ -60,7 +60,7 @@ Author URL: http://w3layouts.com
                     <li class="nav-item @@contact__active">
                         <a class="nav-link" href="fashion.html">Fashion</a>
                     </li>
-                    <li class="nav-item @@contact__active">
+                    <li class="nav-item active @@contact__active">
                         <a class="nav-link" href="{{route('contact')}}">Contact</a>
                     </li>
                     <li class="nav-item @@contact__active">

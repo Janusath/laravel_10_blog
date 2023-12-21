@@ -298,7 +298,7 @@ Author URL: http://w3layouts.com
         <div class="container py-lg-5 py-md-4">
             <!-- block -->
             <div class="left-right">
-                <h3 class="section-title-left mb-sm-4 mb-2"> Fashion and style</h3>
+                <h3 class="section-title-left mb-sm-4 mb-2"> Entrepreneur</h3>
                 <a href="fashiom.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
             <div class="row">
@@ -313,23 +313,23 @@ Author URL: http://w3layouts.com
                             </a>
                         </div>
                         <div class="card-body blog-details">
-                            <a href="#blog-single.html" class="blog-desc"> {{ $entrepreneurUser->ownerName }}
+                            <a  href="" class="blog-desc"> {{ $entrepreneurUser->ownerName }}
                             </a>
                             <div class="author align-items-center">
                                 <img src="images/enterpreneur_images/{{ $entrepreneurUser->picture }}" alt="" class="img-fluid rounded-circle" />
                                 <ul class="blog-meta">
                                     <li>
-                                        <a href="author.html">{{ $entrepreneurUser->shopName }}</a> </a>
+                                        <a class="link-underline-light" href="">{{ $entrepreneurUser->shopName }}</a> </a>
                                     </li>
                                     <li>
-                                        <a href="author.html">{{ $entrepreneurUser->location }}</a> </a>
+                                        <a class="link-underline-light" href="">{{ $entrepreneurUser->location }}</a> </a>
                                     </li>
                                     <li>
-                                        <a href="author.html">{{ $entrepreneurUser->category }}</a> </a>
+                                        <a class="link-underline-light" href="">{{ $entrepreneurUser->category }}</a> </a>
                                     </li>
                                     <li class="meta-item blog-lesson">
                                         <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"></span>
-                                        <button type="button" value="{{ $entrepreneurUser->id }}" class="editbtn1 btn btn-primary" data-bs-toggle="modal">
+                                        <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn1 btn btn-primary" data-bs-toggle="modal">
                                             view more
                                           </button>
                                     </li>
@@ -469,11 +469,11 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.editbtn1', function () {
-        var id = $(this).val();
+        var businessReNo  = $(this).val();
         $('#entrepreneurModal').modal('show');
-        console.log('Edit button clicked. ID:', id);
+        console.log('Edit button clicked. ID:', businessReNo );
         $.ajax({
-            url: '/editEntrepreneur/' + id,
+            url: '/editEntrepreneur/' + businessReNo ,
             method: 'get',
             success: function (response) {
                 console.log('AJAX response:', response);
@@ -491,8 +491,6 @@ $(document).ready(function () {
         });
     });
 });
-
-
 </script>
 
                 {{-- <div class="col-lg-6 mt-4">
