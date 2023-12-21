@@ -29,9 +29,8 @@ class WebsiteController extends Controller
     public function edit1($businessReNo)
     {
         try {
-            $editEntrepreneurUser = Event::where('businessReNo', $businessReNo)->get();
+            $editEntrepreneurUser = EntrepreneurUser::where('businessReNo', $businessReNo)->get();
 
-            dd($editEntrepreneurUser);
             if (!$editEntrepreneurUser) {
                 return response()->json(['error' => 'Record not found.']);
             }
@@ -41,6 +40,8 @@ class WebsiteController extends Controller
             return response()->json(['error' => $e->getMessage()]);
         }
     }
+
+
 
 
 
