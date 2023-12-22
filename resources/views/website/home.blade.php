@@ -330,8 +330,19 @@ Author URL: http://w3layouts.com
                                     <li class="meta-item blog-lesson">
                                         <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"></span>
                                         <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn1 btn btn-primary" data-bs-toggle="modal">
-                                            view more
+                                            entrepreneur
                                         </button>
+                                        @foreach($timeSlots as $timeSlot)
+                                        <button type="button" value="{{ $timeSlot->businessReNo}}" class="editbtn2 btn btn-primary" data-bs-toggle="modal">
+                                            product
+                                        </button>
+                                        @endforeach
+                                        @foreach($productions as $production)
+                                        <button type="button" value="{{ $production->businessReNo}}" class="editbtn3 btn btn-primary" data-bs-toggle="modal">
+                                            timeslot
+                                        </button>
+                                        @endforeach
+
                                     </li>
                                 </ul>
                             </div>
@@ -451,6 +462,84 @@ Author URL: http://w3layouts.com
                                     </p>
                                     <p class="d-inline">Image: <h6 class="d-inline" id="picture"></h6>
                                     </p>
+
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--productModal Modal -->
+                <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="productModalLabel"> Product Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-center">
+                                    </p>
+                                    <p class="d-inline">Date: <h6 class="d-inline" id="product_created_at"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Product Name: <h6 class="d-inline" id="product_name"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Product Category: <h6 class="d-inline" id="product_category"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Product Details: <h6 class="d-inline" id="product_details"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Product Image: <h6 class="d-inline" id="product_image"></h6>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--timeslotModal Modal -->
+                <div class="modal fade" id="timeslotModal" tabindex="-1" aria-labelledby="timeslotModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="timeslotModalLabel"> Timeslot Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-center">
+                                    </p>
+                                    <p class="d-inline">Date: <h6 class="d-inline" id="timestot_created_at"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Monday: <h6 class="d-inline" id="timestot_monday"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Tuesday: <h6 class="d-inline" id="timestot_monday"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Wednesday: <h6 class="d-inline" id="timestot_wednesday"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Thursday: <h6 class="d-inline" id="timestot_thurday"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Friday: <h6 class="d-inline" id="timestot_friday"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Saturday: <h6 class="d-inline" id="timestot_saturday"></h6>
+                                    </p>
+                                    </p>
+                                    <p class="d-inline">Sunday: <h6 class="d-inline" id="timestot_sunday"></h6>
+                                    </p>
                                 </div>
                             </div>
 
@@ -492,19 +581,58 @@ Author URL: http://w3layouts.com
                                 url: '/editEntrepreneur/' + businessReNo
                                 , method: 'get'
                                 , success: function(response) {
-                                    console.log('AJAX response:', response);
-                                    $("#created_at").text(response.created_at);
-                                    $("#ownerName").text(response.ownerName);
-                                    $("#shopName").text(response.shopName);
-                                    $("#location").text(response.location);
-                                    $("#category").text(response.category);
-                                    $("#phoneNo").text(response.phoneNo);
-                                    $("#email").text(response.email);
+                                    console.log('AJAX response:', response[0]);
+                                    $("#date_created_at").text(response[0].created_at);
+                                    $("#ownerName").text(response[0].ownerName);
+                                    $("#shopName").text(response[0].shopName);
+                                    $("#location").text(response[0].location);
+                                    $("#category").text(response[0].category);
+                                    $("#phoneNo").text(response[0].phoneNo);
+                                    $("#email").text(response[0].email);
                                     $("#picture").html(
-                                        `<img src="images/enterpreneur_images/${response.picture}" width="100" class="img-fluid img-thumbnail">`);
+                                        `<img src="images/enterpreneur_images/${response[0].picture}" width="100" class="img-fluid img-thumbnail">`);
                                 }
-                                , error: function(error) {
-                                    console.error('AJAX error:', error);
+                            });
+                        });
+
+
+                        $(document).on('click', '.editbtn2', function() {
+                            var businessReNo = $(this).val();
+                            $('#productModal').modal('show');
+                            console.log('Edit button clicked. ID:', businessReNo);
+                            $.ajax({
+                                url: '/production/' + businessReNo
+                                , method: 'get'
+                                , success: function(response) {
+                                    console.log('AJAX response:', response);
+                                    $("#product_created_at").text(response[0].created_at);
+                                    $("#product_name").text(response[0].name);
+                                    $("#product_category").text(response[0].category);
+                                    $("#product_details").text(response[0].details);
+                                    $("#product_image").html(
+                                        `<img src="storage/images/enterpreneur_images/${response[0].image}" width="100" class="img-fluid img-thumbnail">`);
+                                }
+                            });
+                        });
+
+
+                        $(document).on('click', '.editbtn3', function() {
+                            var businessReNo = $(this).val();
+                            $('#timeslotModal').modal('show');
+                            console.log('Edit button clicked. ID:', businessReNo);
+                            $.ajax({
+                                url: '/timeSlot/' + businessReNo
+                                , method: 'get'
+                                , success: function(response) {
+                                    console.log('AJAX response:', response[0]);
+                                    $("#timestot_created_at").text(response[0].created_at);
+                                    $("#timestot_monday").text(response[0].monday);
+                                    $("#timestot_tuesday").text(response[0].tuesday);
+                                    $("#timestot_wednesday").text(response[0].wednesday);
+                                    $("#timestot_thursday").text(response[0].thursday);
+                                    $("#timestot_friday").text(response[0].friday);
+                                    $("#timestot_saturday").text(response[0].saturday);
+                                    $("#timestot_sunday").text(response[0].sunday);
                                 }
                             });
                         });

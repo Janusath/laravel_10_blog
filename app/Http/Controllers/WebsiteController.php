@@ -42,6 +42,35 @@ class WebsiteController extends Controller
     }
 
 
+    public function edit2($businessReNo)
+    {
+        try {
+            $editProductions = Production::where('businessReNo', $businessReNo)->get();
+
+            if (!$editProductions) {
+                return response()->json(['error' => 'Record not found.']);
+            }
+
+            return response()->json($editProductions);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+    }
+
+    public function edit3($businessReNo)
+    {
+        try {
+            $editTimeSlots = TimeSlot::where('businessReNo', $businessReNo)->get();
+
+            if (!$editTimeSlots) {
+                return response()->json(['error' => 'Record not found.']);
+            }
+
+            return response()->json($editTimeSlots);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+    }
 
 
 
