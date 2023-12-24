@@ -370,7 +370,7 @@ Author URL: http://w3layouts.com
             <a class="navbar-brand mb-3" href="index.html">
               <span class="fa fa-newspaper-o"></span> NewsBlog</a>
             <p class="copy-footer-28"> © 2020. All Rights Reserved. </p>
-            <h5 class="mt-2">Design by <a href="https://w3layouts.com/">W3Layouts</a></h5>
+            <h5 class="mt-2">Design by <a href="">Vidya</a></h5>
           </div>
           <div class="col-lg-8 row">
             <div class="col-sm-4 col-6 footer-list-28">
