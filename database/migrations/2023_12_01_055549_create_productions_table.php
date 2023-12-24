@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('category');
             $table->string('image');
             $table->string('details');
-            $table->bigInteger('businessReNo');
+            $table->string('businessReNo');
             $table->timestamps();
         });
     }

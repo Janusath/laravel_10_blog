@@ -58,7 +58,7 @@ Author URL: http://w3layouts.com
                         <a class="nav-link" href="{{route('event_post')}}">Event</a>
                     </li>
                     <li class="nav-item @@contact__active">
-                        <a class="nav-link" href="fashion.html">Fashion</a>
+                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                     <li class="nav-item active @@contact__active">
                         <a class="nav-link" href="{{route('contact')}}">Contact</a>

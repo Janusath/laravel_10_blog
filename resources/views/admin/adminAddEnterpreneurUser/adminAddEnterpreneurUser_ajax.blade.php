@@ -8,7 +8,7 @@
       $("#add_entrepreneur_registration_form").submit(function(e) {
         e.preventDefault();
         const fd = new FormData(this);
-        $("#add_entrepreneur_registration_btn").text('Add');
+        $("#add_entrepreneur_registration_btn").text('Adding...');
         $.ajax({
           url: '{{ route('admin_add_enterpreneur_user_store') }}',
           method: 'post',

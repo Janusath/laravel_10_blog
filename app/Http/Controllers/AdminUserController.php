@@ -37,7 +37,16 @@ class AdminUserController extends Controller
             return redirect()->route('admin_register')->withErrors($validator)->withInput();
         }
 
-        $registerData = $request->all();
+        $registerData=[
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'fullName' => $request->fullName,
+            'userName' => $request->userName,
+            'picture' => $request->picture,
+            'email' => $request->email,
+            'password' => $request->password,
+            'confirmPassword' => $request->confirmPassword,
+        ];
         $user = AdminUser::create($registerData);
         Auth::guard('admin_user')->login($user);
         $this->showSweetAlert('success', 'Register Successful', 'Successfully Registered');
@@ -89,7 +98,7 @@ class AdminUserController extends Controller
             $data->lastName = $request->lastName;
             $data->fullName = $request->fullName;
             $data->userName = $request->userName;
-            
+
 
             if ($request->file('picture')) {
                 $file = $request->file('picture');

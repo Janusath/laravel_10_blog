@@ -55,7 +55,7 @@ Author URL: http://w3layouts.com
                             <a class="nav-link" href="{{route('event_post')}}">Event</a>
                         </li>
                         <li class="nav-item @@contact__active">
-                            <a class="nav-link" href="fashion.html">Fashion</a>
+                            <a class="nav-link" href="{{ route('about') }}">About Us</a>
                         </li>
                         <li class="nav-item @@contact__active">
                             <a class="nav-link" href="{{route('contact')}}">Contact</a>
@@ -319,7 +319,6 @@ Author URL: http://w3layouts.com
             <!-- block -->
             <div class="left-right">
                 <h3 class="section-title-left mb-sm-4 mb-2"> Events</h3>
-                <a href="beauty.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
             <div class="row">
                 @foreach($events as $item)
@@ -357,6 +356,7 @@ Author URL: http://w3layouts.com
                 <p>No record found</p>
                 @endif
                 @endforeach
+
                 <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -364,7 +364,7 @@ Author URL: http://w3layouts.com
                                 <h5 class="modal-title" id="exampleModalLabel">Event</h5>
                             </div>
                             <div class="modal-body">
-                                <div class="text-center">
+                                <div class="text-center border border-warning-subtle">
                                     <p class="d-inline">Date: <h6 class="d-inline" id="eventCreated_at"></h6>
                                     </p>
                                     <p class="d-inline">Title: <h6 class="d-inline" id="title"></h6>
@@ -388,6 +388,7 @@ Author URL: http://w3layouts.com
                         </div>
                     </div>
                 </div>
+
                 <script>
                     $(document).ready(function() {
                         $(document).on('click', '.editbtn', function() {
@@ -415,6 +416,11 @@ Author URL: http://w3layouts.com
                     });
 
                 </script>
+
+            </div>
+            <div class="left-right mt-4">
+                <h3 class="section-title-left mb-sm-4 mb-2 "></h3>
+                {{$events->links('pagination::bootstrap-4')  }}
             </div>
         </div>
     </div>

@@ -5,19 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\EntrepreneurUser;
 use App\Models\Event;
 use App\Models\Production;
+use App\Models\ShopBanner;
 use App\Models\TimeSlot;
+
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        $events = Event::all();
+
+        $events = Event::paginate(2 ,['*'], 'page1');
         $productions = Production::all();
         $timeSlots = TimeSlot::all();
-        $entrepreneurUsers = EntrepreneurUser::all();
-        return view('website.home',compact('entrepreneurUsers','events','productions','timeSlots'));
+        $entrepreneurUsers = EntrepreneurUser::paginate(3 ,['*'], 'page2');
+        $ShopBanners = ShopBanner::all();
+
+        return view('website.home',compact('entrepreneurUsers','events','productions','timeSlots','ShopBanners'));
     }
+
 
     public function edit($id)
     {
@@ -72,12 +78,26 @@ class WebsiteController extends Controller
         }
     }
 
+    public function edit4($businessReNo)
+    {
+        try {
+            $editShopBanners = ShopBanner::where('businessReNo', $businessReNo)->get();
+
+            if (!$editShopBanners) {
+                return response()->json(['error' => 'Record not found.']);
+            }
+
+            return response()->json($editShopBanners);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+    }
 
 
     public function event()
     {
         $entrepreneurUsers = EntrepreneurUser::all();
-        $events = Event::all();
+        $events = Event::paginate(2);
         return view('website.event',compact('events','entrepreneurUsers'));
     }
 
@@ -86,5 +106,10 @@ class WebsiteController extends Controller
     public function contact()
     {
         return view('website.contact');
+    }
+
+    public function about()
+    {
+        return view('website.about');
     }
 }

@@ -46,7 +46,7 @@ Author URL: http://w3layouts.com
                                 <a class="nav-link" href="{{route('event_post')}}">Event</a>
                             </li>
                             <li class="nav-item @@contact__active">
-                                <a class="nav-link" href="fashion.html">Fashion</a>
+                                <a class="nav-link" href="{{ route('about') }}">About Us</a>
                             </li>
                             <li class="nav-item @@contact__active">
                                 <a class="nav-link" href="{{route('contact')}}">Contact</a>
@@ -299,13 +299,13 @@ Author URL: http://w3layouts.com
             <!-- block -->
             <div class="left-right">
                 <h3 class="section-title-left mb-sm-4 mb-2"> Entrepreneur</h3>
-                <a href="fashiom.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
+                <a href="fashiom.html" class="more btn btn-small mb-sm-0 mb-4"></a>
             </div>
             <div class="row">
                 @foreach($entrepreneurUsers as $entrepreneurUser)
                 @if($entrepreneurUser->entrepreneur_status == 1)
 
-                <div class="col-lg-4 col-md-6 item">
+                <div class=" col-lg-4 col-md-6 item">
                     <div class="card">
                         <div class="card-header p-0 position-relative">
                             <a href="#blog-single.html">
@@ -329,23 +329,26 @@ Author URL: http://w3layouts.com
                                     </li>
                                     <li class="meta-item blog-lesson">
                                         <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"></span>
-                                        <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn1 btn btn-primary" data-bs-toggle="modal">
-                                            entrepreneur
-                                        </button>
-                                        @foreach($timeSlots as $timeSlot)
-                                        <button type="button" value="{{ $timeSlot->businessReNo}}" class="editbtn2 btn btn-primary" data-bs-toggle="modal">
-                                            product
-                                        </button>
-                                        @endforeach
-                                        @foreach($productions as $production)
-                                        <button type="button" value="{{ $production->businessReNo}}" class="editbtn3 btn btn-primary" data-bs-toggle="modal">
-                                            timeslot
-                                        </button>
-                                        @endforeach
 
+                                        <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn1 btn btn-primary m-2" data-bs-toggle="modal">
+                                           View
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
+                            <div>
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn2 btn btn-primary " data-bs-toggle="modal">
+                                    Opening
+                                </button>
+
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn3 btn btn-primary" data-bs-toggle="modal">
+                                 Products
+                                </button>
+
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn4 btn btn-primary" data-bs-toggle="modal">
+                                    Banner
+                                </button>
+                         </div>
                         </div>
                     </div>
                 </div>
@@ -356,6 +359,12 @@ Author URL: http://w3layouts.com
                 @endforeach
 
             </div>
+            <div class="left-right mt-4">
+                <h3 class="section-title-left mb-sm-4 mb-2"></h3>
+                 {{$entrepreneurUsers->links('pagination::bootstrap-4')  }}
+
+            </div>
+
         </div>
     </div>
     </div>
@@ -366,7 +375,6 @@ Author URL: http://w3layouts.com
             <!-- block -->
             <div class="left-right">
                 <h3 class="section-title-left mb-sm-4 mb-2"> Events</h3>
-                <a href="beauty.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
             <div class="row">
                 @foreach($events as $item)
@@ -481,23 +489,8 @@ Author URL: http://w3layouts.com
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="text-center">
-                                    </p>
-                                    <p class="d-inline">Date: <h6 class="d-inline" id="product_created_at"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Product Name: <h6 class="d-inline" id="product_name"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Product Category: <h6 class="d-inline" id="product_category"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Product Details: <h6 class="d-inline" id="product_details"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Product Image: <h6 class="d-inline" id="product_image"></h6>
-                                    </p>
-                                </div>
+                                <div class="products"></div> {{--this is come from ajax for loop all record --}}
+
                             </div>
 
                             <div class="modal-footer">
@@ -515,32 +508,7 @@ Author URL: http://w3layouts.com
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="text-center">
-                                    </p>
-                                    <p class="d-inline">Date: <h6 class="d-inline" id="timestot_created_at"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Monday: <h6 class="d-inline" id="timestot_monday"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Tuesday: <h6 class="d-inline" id="timestot_monday"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Wednesday: <h6 class="d-inline" id="timestot_wednesday"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Thursday: <h6 class="d-inline" id="timestot_thurday"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Friday: <h6 class="d-inline" id="timestot_friday"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Saturday: <h6 class="d-inline" id="timestot_saturday"></h6>
-                                    </p>
-                                    </p>
-                                    <p class="d-inline">Sunday: <h6 class="d-inline" id="timestot_sunday"></h6>
-                                    </p>
-                                </div>
+                                <div class="timeslots"></div> {{--this is come from ajax for loop all record --}}
                             </div>
 
                             <div class="modal-footer">
@@ -549,123 +517,30 @@ Author URL: http://w3layouts.com
                         </div>
                     </div>
                 </div>
-                <script>
-                    $(document).ready(function() {
-                        $(document).on('click', '.editbtn', function() {
-                            var id = $(this).val();
-                            $('#editEventModal').modal('show');
-                            console.log('Edit button clicked. ID:', id);
-                            $.ajax({
-                                url: '/editEvent/' + id
-                                , method: 'get'
-                                , success: function(response) {
-                                    console.log('AJAX response:', response);
-                                    $("#eventCreated_at").text(response.created_at);
-                                    $("#title").text(response.title);
-                                    $("#subTitle").text(response.subTitle);
-                                    $("#author").text(response.author);
-                                    $("#description").text(response.description);
-                                    $("#eventCategory").text(response.category);
-                                    $("#image").html(
-                                        `<img src="storage/images/admin_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
-
-                                }
-                            });
-                        });
-
-                        $(document).on('click', '.editbtn1', function() {
-                            var businessReNo = $(this).val();
-                            $('#entrepreneurModal').modal('show');
-                            console.log('Edit button clicked. ID:', businessReNo);
-                            $.ajax({
-                                url: '/editEntrepreneur/' + businessReNo
-                                , method: 'get'
-                                , success: function(response) {
-                                    console.log('AJAX response:', response[0]);
-                                    $("#date_created_at").text(response[0].created_at);
-                                    $("#ownerName").text(response[0].ownerName);
-                                    $("#shopName").text(response[0].shopName);
-                                    $("#location").text(response[0].location);
-                                    $("#category").text(response[0].category);
-                                    $("#phoneNo").text(response[0].phoneNo);
-                                    $("#email").text(response[0].email);
-                                    $("#picture").html(
-                                        `<img src="images/enterpreneur_images/${response[0].picture}" width="100" class="img-fluid img-thumbnail">`);
-                                }
-                            });
-                        });
-
-
-                        $(document).on('click', '.editbtn2', function() {
-                            var businessReNo = $(this).val();
-                            $('#productModal').modal('show');
-                            console.log('Edit button clicked. ID:', businessReNo);
-                            $.ajax({
-                                url: '/production/' + businessReNo
-                                , method: 'get'
-                                , success: function(response) {
-                                    console.log('AJAX response:', response);
-                                    $("#product_created_at").text(response[0].created_at);
-                                    $("#product_name").text(response[0].name);
-                                    $("#product_category").text(response[0].category);
-                                    $("#product_details").text(response[0].details);
-                                    $("#product_image").html(
-                                        `<img src="storage/images/enterpreneur_images/${response[0].image}" width="100" class="img-fluid img-thumbnail">`);
-                                }
-                            });
-                        });
-
-
-                        $(document).on('click', '.editbtn3', function() {
-                            var businessReNo = $(this).val();
-                            $('#timeslotModal').modal('show');
-                            console.log('Edit button clicked. ID:', businessReNo);
-                            $.ajax({
-                                url: '/timeSlot/' + businessReNo
-                                , method: 'get'
-                                , success: function(response) {
-                                    console.log('AJAX response:', response[0]);
-                                    $("#timestot_created_at").text(response[0].created_at);
-                                    $("#timestot_monday").text(response[0].monday);
-                                    $("#timestot_tuesday").text(response[0].tuesday);
-                                    $("#timestot_wednesday").text(response[0].wednesday);
-                                    $("#timestot_thursday").text(response[0].thursday);
-                                    $("#timestot_friday").text(response[0].friday);
-                                    $("#timestot_saturday").text(response[0].saturday);
-                                    $("#timestot_sunday").text(response[0].sunday);
-                                }
-                            });
-                        });
-
-                    });
-
-                </script>
-
-                {{-- <div class="col-lg-6 mt-4">
-                    <div class="bg-clr-white hover-box">
-                        <div class="row">
-                            <div class="col-sm-5 position-relative">
-                                <a href="#blog-single.html" class="image-mobile">
-                                    <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/beauty4.jpg" alt="Card image cap">
-                                </a>
+                <!--bannerModal Modal -->
+                <div class="modal fade" id="bannerModal" tabindex="-1" aria-labelledby="bannerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="bannerModalLabel"> Product Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="col-sm-7 card-body blog-details align-self">
-                                <a href="#blog-single.html" class="blog-desc">How our dreams should shine and spray beauty to us.</a>
-                                <div class="author align-items-center">
-                                    <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <a href="author.html">Isabella ava</a> </a>
-                                        </li>
-                                        <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="modal-body">
+                                <div class="banners"></div> {{--this is come from ajax for loop all record --}}
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
+                <div class="left-right mt-4">
+                    <h3 class="section-title-left mb-sm-4 mb-2 "></h3>
+                    {{$events->links('pagination::bootstrap-4')  }}
+                </div>
+
             </div>
         </div>
     </div>
@@ -890,5 +765,7 @@ Author URL: http://w3layouts.com
 
 <!-- Template Javascript -->
 <script src="website/website/assets/js/main.js"></script>
+@include('website.home_ajax');
 </body>
 </html>
+

@@ -19,7 +19,7 @@ return new class extends Migration
         $table->string('category');
         $table->string('description');
         $table->string('image');
-        $table->bigInteger('businessReNo');
+        $table->string('businessReNo');
         $table->timestamps();
 
         });
