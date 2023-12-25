@@ -21,7 +21,8 @@ class ProductionController extends Controller
 
     public function store(Request $request)
     {
-        $value=5;
+        $businessreno = auth()->guard('entrepreneur')->user()->businessReNo;
+        $business_reno=$businessreno;
         $file = $request->file('image');
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/images/enterpreneur_images', $fileName);
@@ -31,7 +32,7 @@ class ProductionController extends Controller
             'category' => $request->category,
             'details' => $request->details,
             'image' => $fileName,
-            'businessReNo' => $value,
+            'businessReNo' => $business_reno,
         ];
         Production::create($productData);
         return response()->json([
@@ -42,7 +43,9 @@ class ProductionController extends Controller
     // handle fetch all eamployees ajax request
     public function show()
     {
-        $production = Production::all();
+        $businessreno = auth()->guard('entrepreneur')->user()->businessReNo;
+        // Get events based on the user's businessReNo
+        $production = Production::where('businessReNo', $businessreno)->get();
         $output = '';
         if ($production->count() > 0) {
             $output .= ' <div class="table-responsive"> <table class="table table-striped table-sm text-center align-middle">
@@ -58,9 +61,10 @@ class ProductionController extends Controller
               </tr>
             </thead>
             <tbody>';
+            $productCount=1;
             foreach ($production as $product) {
                 $output .= '<tr>
-                <td>' . $product->id . '</td>
+                <td>' . $productCount . '</td>
                 <td><img src="storage/images/enterpreneur_images/' . $product->image . '" width="50" class="rounded-circle"></td>
                 <td>' . $product->name . '</td>
                 <td>' . $product->category . '</td>
@@ -71,6 +75,7 @@ class ProductionController extends Controller
                   <a href="#" id="' . $product->id . '" class="btn btn-danger mx-1 deleteIcon"><i class="bi-trash h6"></i></a>
                 </td>
               </tr>';
+              $productCount++;
             }
             $output .= '</tbody></table></div>';
             echo $output;

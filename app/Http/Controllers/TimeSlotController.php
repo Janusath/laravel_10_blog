@@ -31,7 +31,8 @@ class TimeSlotController extends Controller
      */
     public function store(Request $request)
     {
-        $value=5;
+        $businessreno = auth()->guard('entrepreneur')->user()->businessReNo;
+        $business_reno=$businessreno;
 
         $timeSlotData = [
             'monday' => $request->monday,
@@ -41,7 +42,7 @@ class TimeSlotController extends Controller
             'friday' => $request->friday,
             'saturday' => $request->saturday,
             'sunday' => $request->sunday,
-            'businessReNo' => $value,
+            'businessReNo' => $business_reno,
         ];
         TimeSlot::create($timeSlotData);
         return response()->json([
@@ -54,7 +55,9 @@ class TimeSlotController extends Controller
      */
     public function show(TimeSlot $timeSlot)
     {
-        $timeSlot = TimeSlot::all();
+        $businessreno = auth()->guard('entrepreneur')->user()->businessReNo;
+        // Get events based on the user's businessReNo
+        $timeSlot = TimeSlot::where('businessReNo', $businessreno)->get();
         $output = '';
         if ($timeSlot->count() > 0) {
             $output .= ' <div class="table-responsive"> <table class="table table-striped table-sm text-center align-middle">
@@ -73,9 +76,10 @@ class TimeSlotController extends Controller
               </tr>
             </thead>
             <tbody>';
+            $timeSlotCount=1;
             foreach ($timeSlot as $time_slot) {
                 $output .= '<tr>
-                <td>' . $time_slot->id . '</td>
+                <td>' . $timeSlotCount . '</td>
                 <td>' . $time_slot->monday . '</td>
                 <td>' . $time_slot->tuesday . '</td>
                 <td>' . $time_slot->wednesday . '</td>
@@ -88,6 +92,7 @@ class TimeSlotController extends Controller
                   <a href="#" id="' . $time_slot->id . '" class="btn btn-danger mx-1 deleteIcon"><i class="bi-trash h6"></i></a>
                 </td>
               </tr>';
+              $timeSlotCount++;
             }
             $output .= '</tbody></table></div>';
             echo $output;

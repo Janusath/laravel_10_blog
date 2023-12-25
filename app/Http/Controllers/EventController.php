@@ -29,7 +29,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $business_reno=5;
+        $id = auth()->guard('admin_user')->user()->id;
+        $admin_reno=$id;
         $file = $request->file('image');
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/images/admin_images', $fileName);
@@ -42,7 +43,7 @@ class EventController extends Controller
             'category' => $request->category,
             'description' => $request->description,
             'image' => $fileName,
-            'businessReNo' => $business_reno,
+            'adminReNo' => $admin_reno,
         ];
         Event::create($eventData);
         return response()->json([
@@ -55,6 +56,10 @@ class EventController extends Controller
      */
     public function show()
     {
+        // $id = auth()->guard('admin_user')->user()->id;
+
+        // Get events based on the user's adminReNo
+        // $events = Event::where('adminReNo', $id)->get();
         $events = Event::all();
         $output = '';
         if ($events->count() > 0) {

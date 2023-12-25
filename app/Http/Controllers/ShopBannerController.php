@@ -19,7 +19,8 @@ class ShopBannerController extends Controller
     }
     public function store(Request $request)
     {
-        $business_reno=5;
+        $businessreno = auth()->guard('entrepreneur')->user()->businessReNo;
+        $business_reno=$businessreno;
         $file = $request->file('image');
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/images/enterpreneur_images', $fileName);
@@ -39,7 +40,9 @@ class ShopBannerController extends Controller
     // handle fetch all eamployees ajax request
     public function show()
     {
-        $shopBanner = ShopBanner::all();
+        $businessreno = auth()->guard('entrepreneur')->user()->businessReNo;
+        // Get events based on the user's businessReNo
+        $shopBanner = ShopBanner::where('businessReNo', $businessreno)->get();
         $output = '';
         if ($shopBanner->count() > 0) {
             $output .= ' <div class="table-responsive"> <table class="table  table-striped table-sm text-center align-middle">
@@ -53,9 +56,10 @@ class ShopBannerController extends Controller
               </tr>
             </thead>
             <tbody>';
+            $shopBannerCount=1;
             foreach ($shopBanner as $banner) {
                 $output .= '<tr>
-                <td>' . $banner->id . '</td>
+                <td>' . $shopBannerCount . '</td>
                 <td><img src="storage/images/enterpreneur_images/' . $banner->image . '" width="50" class="rounded-circle"></td>
                 <td>' . $banner->description . '</td>
 
@@ -66,6 +70,7 @@ class ShopBannerController extends Controller
                   <a href="#" id="' . $banner->id . '" class="btn btn-danger mx-1 deleteIcon"><i class="bi-trash h6"></i></a>
                 </td>
               </tr>';
+              $shopBannerCount++;
             }
             $output .= '</tbody></table></div>';
             echo $output;

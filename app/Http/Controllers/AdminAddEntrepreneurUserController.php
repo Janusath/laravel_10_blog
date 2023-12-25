@@ -21,6 +21,7 @@ class AdminAddEntrepreneurUserController extends Controller
 
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'ownerName' => 'required',
             'shopName' => 'required',
@@ -65,7 +66,9 @@ class AdminAddEntrepreneurUserController extends Controller
 
     public function show()
     {
-        $entrepreneurUser = EntrepreneurUser::all();
+        $id = auth()->guard('admin_user')->user()->businessReNo;
+        // Get events based on the user's businessReNo
+        $entrepreneurUser = EntrepreneurUser::where('businessReNo', $id)->get();
         $output = '';
         if ($entrepreneurUser->count() > 0) {
             $output .= ' <div class="table-responsive"> <table class="table table-striped table-sm text-center align-middle">

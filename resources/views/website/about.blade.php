@@ -20,346 +20,67 @@ Author URL: http://w3layouts.com
   <body>
 <!-- header -->
 <header class="w3l-header">
-	<div class="container">
-	<!--/nav-->
-	<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-sm-3 px-0">
-			<a class="navbar-brand" href="index.html">
-				<span class="fa fa-newspaper-o"></span> NewsBlog</a>
-			<!-- if logo is image enable this
-						<a class="navbar-brand" href="#index.html">
-							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-						</a> -->
+    <div class="container">
+        <!--/nav-->
+        <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-sm-3 px-0">
+            <a> <img src="/website/assets/images/idb_logo.png" alt="Your logo" title="Your logo" style="height:70px;" />
+            </a>
 
 
-			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<!-- <span class="navbar-toggler-icon"></span> -->
-				<span class="fa icon-expand fa-bars"></span>
-				<span class="fa icon-close fa-times"></span>
-			</button>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <span class="fa icon-expand fa-bars"></span>
+                <span class="fa icon-close fa-times"></span>
+            </button>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<nav class="mx-auto">
-					<div class="search-bar">
-						<form class="search">
-							<input type="search" class="search__input" name="search" placeholder="Discover news, articles and more"
-								onload="equalWidth()" required>
-							<span class="fa fa-search search__icon"></span>
-						</form>
-					</div>
-				</nav>
-                <ul class="navbar-nav">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{route('home')}}">Home</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <nav class="mx-auto">
 
-                    <li class="nav-item @@contact__active">
-                        <a class="nav-link" href="{{route('event_post')}}">Event</a>
-                    </li>
-                    <li class="nav-item @@contact__active active">
-                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
-                    </li>
-                    <li class="nav-item @@contact__active">
-                        <a class="nav-link" href="{{route('contact')}}">Contact</a>
-                    </li>
-                    <li class="nav-item @@contact__active">
-                        <a href="{{route('entrepreneur_login')}}" class="btn btn-primary">Login</a>
-                    </li>
-                </ul>
-			</div>
-			<!-- toggle switch for light and dark theme -->
-			<div class="mobile-position">
-				<nav class="navigation">
-					<div class="theme-switch-wrapper">
-						<label class="theme-switch" for="checkbox">
-							<input type="checkbox" id="checkbox">
-							<div class="mode-container">
-								<i class="gg-sun"></i>
-								<i class="gg-moon"></i>
-							</div>
-						</label>
-					</div>
-				</nav>
-			</div>
-			<!-- //toggle switch for light and dark theme -->
-		</div>
-	</nav>
-	<!--//nav-->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('home')}}">Home</a>
+                        </li>
+
+                        <li class="nav-item @@contact__active ">
+                            <a class="nav-link" href="{{route('event_post')}}">Event</a>
+                        </li>
+                        <li class="nav-item @@contact__active active">
+                            <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                        </li>
+                        <li class="nav-item @@contact__active">
+                            <a class="nav-link" href="{{route('contact')}}">Contact</a>
+                        </li>
+                        <li class="nav-item @@contact__active">
+                            <a href="{{route('entrepreneur_login')}}" class="btn btn-primary">Login</a>
+                        </li>
+                    </ul>
+            </div>
+            <!-- toggle switch for light and dark theme -->
+            <div class="mobile-position">
+                <nav class="navigation">
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="mode-container">
+                                <i class="gg-sun"></i>
+                                <i class="gg-moon"></i>
+                            </div>
+                        </label>
+                    </div>
+                </nav>
+            </div>
+            <!-- //toggle switch for light and dark theme -->
+    </div>
+    </nav>
+    <!--//nav-->
 </header>
 <!-- //header -->
-<div class="w3l-homeblock2 py-5">
-    <div class="container pt-md-4 pb-md-5">
-        <!-- block -->
-        <h3 class="category-title mb-3"> Fashion and Style</h3>
-        <p class="mb-sm-5 mb-4 max-width">Lorem ipsum dolor sit amet elit. Id quaerat amet ipsum sunt et quos dolorum.</p>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 item">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion4.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">All the fashion influencers giving us WFH outfit inspiration
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">Isabella ava</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion5.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">Searching for online inspiration and how to steal their style?
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a3.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">ELizabeth</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion2.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">The Satin Skirt & How to Wear it all year round fashion
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a2.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">Charlotte mia</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-5 mt-4">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion7.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">From the classic (jeans) to the not-so-classic (printed tops)
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">Johnson smith</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-5 mt-4">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion8.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">3 New Outfit Formulas To Add To Your
-                            Capsule Wardrobe
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">Johnson smith</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-5 mt-4">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion6.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">3 New Outfit Formulas To Add To Your
-                            Capsule Wardrobe
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">Johnson smith</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-5 mt-4">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion1.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">An easy Guide to buying Denim & My favourite styles
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">Isabella ava</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-5 mt-4">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/fashion3.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">What I’ll be Wearing this Party Season & the Festive edit
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a3.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">Elizabeth</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-5 mt-4">
-                <div class="card">
-                    <div class="card-header p-0 position-relative">
-                        <a href="#blog-single.html">
-                            <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/image2.jpg"
-                                alt="Card image cap">
-                        </a>
-                    </div>
-                    <div class="card-body blog-details">
-                        <a href="#blog-single.html" class="blog-desc">3 New Outfit Formulas To Add To Your
-                            Capsule Wardrobe
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                            vitae sit.</p>
-                        <div class="author align-items-center mt-3 mb-1">
-                            <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                            <ul class="blog-meta">
-                                <li>
-                                    <a href="author.html">Johnson smith</a> </a>
-                                </li>
-                                <li class="meta-item blog-lesson">
-                                    <span class="meta-value"> July 13, 2020 </span>. <span
-                                        class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <ul class="site-pagination text-center mt-md-5 mt-4">
-            <li><span aria-current="page" class="page-numbers current">1</span></li>
-            <li><a class="page-numbers" href="#page2">2</a></li>
-            <li><a class="page-numbers" href="#page3">3</a></li>
-            <li><span class="page-numbers dots">…</span></li>
-            <li><a class="page-numbers" href="#page7">7</a></li>
-            <li><a class="next page-numbers" href="#next">Next »</a></li>
-        </ul>
-    </div>
+
+<div class="container-fluid">
+    <a href="https://idb.gov.lk/"> <img class="m-2 mb-5" src="website/assets/images/abuot.png" alt=""></a>
 </div>
+
+
 <!-- footer-28 block -->
 <section class="app-footer">
   <footer class="footer-28 py-5">
@@ -368,7 +89,7 @@ Author URL: http://w3layouts.com
         <div class="row footer-top-28">
           <div class="col-lg-4 footer-list-28 copy-right mb-lg-0 mb-sm-5 mt-sm-0 mt-4">
             <a class="navbar-brand mb-3" href="index.html">
-              <span class="fa fa-newspaper-o"></span> NewsBlog</a>
+              <span class="fa fa-newspaper-o"></span> vidya</a>
             <p class="copy-footer-28"> © 2020. All Rights Reserved. </p>
             <h5 class="mt-2">Design by <a href="">Vidya</a></h5>
           </div>

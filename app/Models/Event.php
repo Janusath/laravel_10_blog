@@ -15,7 +15,7 @@ class Event extends Model
         'category',
         'description',
         'image',
-        'businessReNo',
+        'adminReNo',
 
     ];
 }

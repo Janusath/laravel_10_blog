@@ -11,13 +11,19 @@ class EntrepreneurController extends Controller
 {
     public function index()
     {
-        $data['TotalShopBannerCount'] = ShopBanner::count();
-        $data['TotalProductionCount'] = Production::count();
-        $data['TotalTimeSlotCount'] = TimeSlot::count();
-
         $id = auth()->guard('entrepreneur')->user()->id;
         $user = EntrepreneurUser::find($id);
+
+        $business_reno = auth()->guard('entrepreneur')->user()->businessReNo;
+
+        $data['TotalShopBannerCount'] = ShopBanner::where('businessReNo', $business_reno)->count();
+        $data['TotalProductionCount'] = Production::where('businessReNo', $business_reno)->count();
+        $data['TotalTimeSlotCount'] = TimeSlot::where('businessReNo', $business_reno)->count();
+
         return view('entrepreneur.entrepreneur_dashboard', compact('user','data'));
+
+
+
 
     }
 }

@@ -97,7 +97,7 @@ class WebsiteController extends Controller
     public function event()
     {
         $entrepreneurUsers = EntrepreneurUser::all();
-        $events = Event::paginate(2);
+        $events = Event::all();
         return view('website.event',compact('events','entrepreneurUsers'));
     }
 

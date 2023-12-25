@@ -104,7 +104,9 @@ Author URL: http://w3layouts.com
         </div>
         <!-- /main-slider -->
     </section>
-
+ <div class="container-fluid">
+    <a href="https://idb.gov.lk/"> <img class="m-2" src="website/assets/images/home2.png" alt=""></a>
+</div>
     <section>
 
 
@@ -121,178 +123,10 @@ Author URL: http://w3layouts.com
 
 
     </section>
-    <div class="w3l-homeblock2 py-5">
-        <div class="container py-lg-5 py-md-4">
-            <!-- block -->
-            <div class="row">
-                <div class="col-lg-8">
-                    <h3 class="section-title-left mb-4"> Editor's Pick </h3>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 item">
-                            <div class="card">
-                                <div class="card-header p-0 position-relative">
-                                    <a href="#blog-single.html">
-                                        <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/image1.jpg" alt="Card image cap">
-                                    </a>
-                                </div>
-                                <div class="card-body blog-details">
-                                    <span class="label-blue">Beauty</span>
-                                    <a href="#blog-single.html" class="blog-desc">The 3 Eyeshadow palettes I own & How to
-                                        downsize your stash
-                                    </a>
-                                    <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                                        vitae sit.</p>
-                                    <div class="author align-items-center mt-3 mb-1">
-                                        <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                                        <ul class="blog-meta">
-                                            <li>
-                                                <a href="author.html">Isabella ava</a> </a>
-                                            </li>
-                                            <li class="meta-item blog-lesson">
-                                                <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 mt-md-0 mt-sm-5 mt-4">
-                            <div class="card">
-                                <div class="card-header p-0 position-relative">
-                                    <a href="#blog-single.html">
-                                        <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/image2.jpg" alt="Card image cap">
-                                    </a>
-                                </div>
-                                <div class="card-body blog-details">
-                                    <span class="label-blue">Fashion</span>
-                                    <a href="#blog-single.html" class="blog-desc">2 New outfit formulas to add to your
-                                        Capsule Wardrobe
-                                    </a>
-                                    <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                                        vitae sit.</p>
-                                    <div class="author align-items-center mt-3 mb-1">
-                                        <img src="website/assets/images/a2.jpg" alt="" class="img-fluid rounded-circle" />
-                                        <ul class="blog-meta">
-                                            <li>
-                                                <a href="author.html">Charlotte mia</a> </a>
-                                            </li>
-                                            <li class="meta-item blog-lesson">
-                                                <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4 left-right bg-clr-white p-3">
-                        <h3 class="section-title-left align-self pl-2 mb-sm-0 mb-3">Advertise with us </h3>
-                        <a class="btn btn-style btn-primary" href="#url">Learn more</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 trending mt-lg-0 mt-5">
-                    <div class="topics">
-                        <h3 class="section-title-left mb-4"> Topics</h3>
-                        <a href="beauty.html" class="topics-list">
-                            <div class="list1">
-                                <span class="fa fa-bath"></span>
-                                <h4>Beauty</h4>
-                            </div>
-                        </a>
-                        <a href="fashion.html" class="topics-list mt-3">
-                            <div class="list1">
-                                <span class="fa fa-female"></span>
-                                <h4>Fashion and style</h4>
-                            </div>
-                        </a>
-                        <a href="#food" class="topics-list mt-3">
-                            <div class="list1">
-                                <span class="fa fa-cutlery"></span>
-                                <h4>Food and wellness</h4>
-                            </div>
-                        </a>
-                        <a href="#lifestyle" class="topics-list mt-3">
-                            <div class="list1">
-                                <span class="fa fa-pie-chart"></span>
-                                <h4>Lifestyle</h4>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="sponsers mt-5">
-                        <h3 class="section-title-left mb-4"> Our sponsers</h3>
-                        <a href="#ad-banner"><img src="website/assets/images/ad.jpg" alt="" class="img-fluid radius-image-full" /></a>
-                        <a href="#advertise" class="text-center d-block text-uppercase">Advertise with us </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="w3l-homeblock3 py-5">
-        <div class="container py-lg-5 py-md-4">
-            <h3 class="section-title-left mb-4"> Top Pick's of this month </h3>
-            <div class="row top-pics">
-                <div class="col-lg-4 col-md-6">
-                    <div class="top-pic1">
-                        <div class="card-body blog-details">
-                            <a href="#blog-single.html" class="blog-desc">Fashion is
-                                Creating your Beauty image. The New fashion starts here
-                            </a>
-                            <div class="author align-items-center">
-                                <img src="website/assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="author.html">Isabella ava</a> </a>
-                                    </li>
-                                    <li class="meta-item blog-lesson">
-                                        <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                    <div class="top-pic2">
-                        <div class="card-body blog-details">
-                            <a href="#blog-single.html" class="blog-desc">The 5 Nonnegotiables of a Healthy Quarantine food that a Doctor Approved
-                            </a>
-                            <div class="author align-items-center">
-                                <img src="website/assets/images/a2.jpg" alt="" class="img-fluid rounded-circle" />
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="author.html">Charlotte mia</a> </a>
-                                    </li>
-                                    <li class="meta-item blog-lesson">
-                                        <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
-                    <div class="top-pic3">
-                        <div class="card-body blog-details">
-                            <a href="#blog-single.html" class="blog-desc"> Right food baked with natural ingredient, the use of best quality products
-                            </a>
-                            <div class="author align-items-center">
-                                <img src="website/assets/images/a3.jpg" alt="" class="img-fluid rounded-circle" />
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="author.html">Elizabeth</a> </a>
-                                    </li>
-                                    <li class="meta-item blog-lesson">
-                                        <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+    <div class="container-fluid">
+        <a href="https://idb.gov.lk/"> <img class="m-2 mb-5" src="website/assets/images/home1.png" alt=""></a>
+</div>
 
     <div class="w3l-homeblock2 py-5">
         <div class="container py-lg-5 py-md-4">
@@ -337,15 +171,15 @@ Author URL: http://w3layouts.com
                                 </ul>
                             </div>
                             <div>
-                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn2 btn btn-primary " data-bs-toggle="modal">
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn2 btn btn-success " data-bs-toggle="modal">
                                     Opening
                                 </button>
 
-                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn3 btn btn-primary" data-bs-toggle="modal">
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn3 btn btn-warning" data-bs-toggle="modal">
                                  Products
                                 </button>
 
-                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn4 btn btn-primary" data-bs-toggle="modal">
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn4 btn btn-info" data-bs-toggle="modal">
                                     Banner
                                 </button>
                          </div>
@@ -544,85 +378,9 @@ Author URL: http://w3layouts.com
             </div>
         </div>
     </div>
-    <div class="w3l-homeblock2 w3l-homeblock6 py-5">
-        <div class="container-fluid px-sm-5 py-lg-5 py-md-4">
-            <!-- block -->
-            <h3 class="section-title-left mb-4"> Trending Now</h3>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="bg-clr-white hover-box">
-                        <div class="row">
-                            <div class="col-sm-6 position-relative">
-                                <a href="#blog-single.html">
-                                    <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/trending1.jpg" alt="Card image cap">
-                                </a>
-                            </div>
-                            <div class="col-sm-6 card-body blog-details align-self">
-                                <span class="label-blue">Sports</span>
-                                <a href="#blog-single.html" class="blog-desc">Playing footbal with your feet is one thing.
-                                </a>
-                                <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                                    vitae sit.</p>
-                                <div class="author align-items-center mt-3">
-                                    <img src="website/assets/images/a2.jpg" alt="" class="img-fluid rounded-circle" />
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <a href="author.html">Charlotte mia</a> </a>
-                                        </li>
-                                        <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-lg-0 mt-4">
-                    <div class="bg-clr-white hover-box">
-                        <div class="row">
-                            <div class="col-sm-6 position-relative">
-                                <a href="#blog-single.html">
-                                    <img class="card-img-bottom d-block radius-image-full" src="website/assets/images/trending2.jpg" alt="Card image cap">
-                                </a>
-                            </div>
-                            <div class="col-sm-6 card-body blog-details align-self">
-                                <span class="label-blue">Fitness</span>
-                                <a href="#blog-single.html" class="blog-desc">Experience the state of the art fitness! Fitness on Track </a>
-                                <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                                    vitae sit.</p>
-                                <div class="author align-items-center mt-3">
-                                    <img src="website/assets/images/a3.jpg" alt="" class="img-fluid rounded-circle" />
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <a href="author.html">ELizabeth</a> </a>
-                                        </li>
-                                        <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> July 13, 2020 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="w3l-subscribe py-5">
-        <div class="container py-lg-5 py-md-4">
-            <div class="w3l-subscribe-content text-center bg-clr-white py-md-5 py-2">
-                <div class="py-5">
-                    <h3 class="section-title-left mb-2">Subscribe to our newsletter!</h3>
-                    <p class="mb-md-5 mb-4">We'll send you the best of our blog just once a month. We promise. </p>
-                    <form action="#" method="GET" class="subscribe">
-                        <input type="email" class="subscribe_input" name="search" placeholder="Email address" required="">
-                        <button class="btn btn-style btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+
     <!-- footer-28 block -->
     <section class="app-footer">
         <footer class="footer-28 py-5">
@@ -631,9 +389,9 @@ Author URL: http://w3layouts.com
                     <div class="row footer-top-28">
                         <div class="col-lg-4 footer-list-28 copy-right mb-lg-0 mb-sm-5 mt-sm-0 mt-4">
                             <a class="navbar-brand mb-3" href="index.html">
-                                <span class="fa fa-newspaper-o"></span> NewsBlog</a>
+                                <span class="fa fa-newspaper-o"></span> vidya</a>
                             <p class="copy-footer-28"> © 2020. All Rights Reserved. </p>
-                            <h5 class="mt-2">Design by <a href="https://w3layouts.com/">W3Layouts</a></h5>
+                            <h5 class="mt-2">Design by <a href="#">vidya</a></h5>
                         </div>
                         <div class="col-lg-8 row">
                             <div class="col-sm-4 col-6 footer-list-28">

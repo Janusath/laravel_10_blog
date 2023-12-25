@@ -10,7 +10,7 @@ Author URL: http://w3layouts.com
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Contact</title>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="//fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
@@ -20,72 +20,59 @@ Author URL: http://w3layouts.com
   <body>
 <!-- header -->
 <header class="w3l-header">
-	<div class="container">
-	<!--/nav-->
-	<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-sm-3 px-0">
-			<a class="navbar-brand" href="index.html">
-				<span class="fa fa-newspaper-o"></span> NewsBlog</a>
-			<!-- if logo is image enable this
-						<a class="navbar-brand" href="#index.html">
-							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-						</a> -->
+    <div class="container">
+        <!--/nav-->
+        <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-sm-3 px-0">
+            <a> <img src="/website/assets/images/idb_logo.png" alt="Your logo" title="Your logo" style="height:70px;" />
+            </a>
 
 
-			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<!-- <span class="navbar-toggler-icon"></span> -->
-				<span class="fa icon-expand fa-bars"></span>
-				<span class="fa icon-close fa-times"></span>
-			</button>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <span class="fa icon-expand fa-bars"></span>
+                <span class="fa icon-close fa-times"></span>
+            </button>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<nav class="mx-auto">
-					<div class="search-bar">
-						<form class="search">
-							<input type="search" class="search__input" name="search" placeholder="Discover news, articles and more"
-								onload="equalWidth()" required>
-							<span class="fa fa-search search__icon"></span>
-						</form>
-					</div>
-				</nav>
-			    <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{route('home')}}">Home</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <nav class="mx-auto">
 
-                    <li class="nav-item @@contact__active">
-                        <a class="nav-link" href="{{route('event_post')}}">Event</a>
-                    </li>
-                    <li class="nav-item @@contact__active">
-                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
-                    </li>
-                    <li class="nav-item active @@contact__active">
-                        <a class="nav-link" href="{{route('contact')}}">Contact</a>
-                    </li>
-                    <li class="nav-item @@contact__active">
-                        <a href="{{route('entrepreneur_login')}}" class="btn btn-primary">Login</a>
-                    </li>
-                </ul>
-			</div>
-			<!-- toggle switch for light and dark theme -->
-			<div class="mobile-position">
-				<nav class="navigation">
-					<div class="theme-switch-wrapper">
-						<label class="theme-switch" for="checkbox">
-							<input type="checkbox" id="checkbox">
-							<div class="mode-container">
-								<i class="gg-sun"></i>
-								<i class="gg-moon"></i>
-							</div>
-						</label>
-					</div>
-				</nav>
-			</div>
-			<!-- //toggle switch for light and dark theme -->
-		</div>
-	</nav>
-	<!--//nav-->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('home')}}">Home</a>
+                        </li>
+
+                        <li class="nav-item @@contact__active ">
+                            <a class="nav-link" href="{{route('event_post')}}">Event</a>
+                        </li>
+                        <li class="nav-item @@contact__active">
+                            <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                        </li>
+                        <li class="nav-item @@contact__active active">
+                            <a class="nav-link" href="{{route('contact')}}">Contact</a>
+                        </li>
+                        <li class="nav-item @@contact__active">
+                            <a href="{{route('entrepreneur_login')}}" class="btn btn-primary">Login</a>
+                        </li>
+                    </ul>
+            </div>
+            <!-- toggle switch for light and dark theme -->
+            <div class="mobile-position">
+                <nav class="navigation">
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="mode-container">
+                                <i class="gg-sun"></i>
+                                <i class="gg-moon"></i>
+                            </div>
+                        </label>
+                    </div>
+                </nav>
+            </div>
+            <!-- //toggle switch for light and dark theme -->
+    </div>
+    </nav>
+    <!--//nav-->
 </header>
 <!-- //header -->
 <!-- contacts-5-grid -->
@@ -105,7 +92,8 @@ Author URL: http://w3layouts.com
                     </div>
                     @endif
 
-                    <form action="{{route('email_store')}}" method="post" class="signin-form">
+
+                    <form action="{{route('email_store')}}" method="post" class="signin-form" id="myForm">
                         @csrf
                         <div class="form-grids">
                             <div class="form-input">
@@ -124,11 +112,51 @@ Author URL: http://w3layouts.com
                         <div class="form-input">
                             <textarea name="message" id="message" placeholder="Your message here" required=""></textarea>
                         </div>
+
                         <div class="text-right">
-                            <button class="btn btn-style btn-primary">Submit</button>
+                            <button class="btn btn-style btn-primary" id="submitButton">Submit</button>
+                        </div>
+                
+                        <div id="loader" class="spinner-grow" style="width: 3rem; height: 3rem; display: none;" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
                     </form>
+
                 </div>
+                <script>
+                    $(document).ready(function () {
+                        $("#submitButton").click(function () {
+                            // Check if the form is valid
+                            if ($("#myForm")[0].checkValidity()) {
+                                // Show loader
+                                $("#loader").show();
+
+                                // Serialize form data
+                                var formData = $("#myForm").serialize();
+
+                                // AJAX request to submit the form data
+                                $.ajax({
+                                    type: "POST",
+                                    url: "{{ route('email_store') }}",
+                                    data: formData,
+                                    success: function (response) {
+                                        // Hide loader on success
+                                        $("#loader").hide();
+                                        console.log(response);
+                                    },
+                                    error: function (error) {
+                                        // Hide loader on error
+                                        $("#loader").hide();
+                                        console.error(error);
+                                    }
+                                });
+                            } else {
+                                // If the form is not valid, you can handle it accordingly
+                                console.log("Form is not valid");
+                            }
+                        });
+                    });
+                </script>
 
                 <div class="col-lg-4 contacts-5-grid-main section-gap mt-lg-0 mt-5">
                     <div class="contacts-5-grid">
@@ -138,11 +166,11 @@ Author URL: http://w3layouts.com
                                 <div class="contact-type">
                                     <div class="address-grid mb-4">
                                         <h6>Address</h6>
-                                        <p>#302, 5th Floor, ALHK-2247 ek, Settlers Lane, New York.</p>
+                                        <p>#302, 5th Floor, ALHK-2247 ek, Settlers Lane, Batticaloa.</p>
                                     </div>
                                     <div class="address-grid mb-4">
                                         <h6>Email Address</h6>
-                                        <a href="mailto:mail@example.com" class="link1">mail@example.com</a>
+                                        <a href="mailto:mail@example.com" class="link1">vidya@gmail.com</a>
 
                                     </div>
                                     <div class="address-grid">
@@ -173,9 +201,9 @@ Author URL: http://w3layouts.com
         <div class="row footer-top-28">
           <div class="col-lg-4 footer-list-28 copy-right mb-lg-0 mb-sm-5 mt-sm-0 mt-4">
             <a class="navbar-brand mb-3" href="index.html">
-              <span class="fa fa-newspaper-o"></span> NewsBlog</a>
+              <span class="fa fa-newspaper-o"></span> vidya</a>
             <p class="copy-footer-28"> © 2020. All Rights Reserved. </p>
-            <h5 class="mt-2">Design by <a href="https://w3layouts.com/">W3Layouts</a></h5>
+            <h5 class="mt-2">Design by <a href="https://w3layouts.com/">vidya</a></h5>
           </div>
           <div class="col-lg-8 row">
             <div class="col-sm-4 col-6 footer-list-28">
