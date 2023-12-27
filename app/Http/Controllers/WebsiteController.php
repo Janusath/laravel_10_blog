@@ -24,6 +24,17 @@ class WebsiteController extends Controller
         return view('website.home',compact('entrepreneurUsers','events','productions','timeSlots','ShopBanners'));
     }
 
+    public function shop(Request $request)
+    {
+
+        $events = Event::paginate(2 ,['*'], 'page1');
+        $productions = Production::all();
+        $timeSlots = TimeSlot::all();
+        $entrepreneurUsers = EntrepreneurUser::paginate(3 ,['*'], 'page2');
+        $ShopBanners = ShopBanner::all();
+
+        return view('website.shop',compact('entrepreneurUsers','events','productions','timeSlots','ShopBanners'));
+    }
 
     public function edit($id)
     {
@@ -35,6 +46,7 @@ class WebsiteController extends Controller
     public function edit1($businessReNo)
     {
         try {
+
             $editEntrepreneurUser = EntrepreneurUser::where('businessReNo', $businessReNo)->get();
 
             if (!$editEntrepreneurUser) {

@@ -45,6 +45,9 @@ Author URL: http://w3layouts.com
                             <a class="nav-link" href="{{route('event_post')}}">Event</a>
                         </li>
                         <li class="nav-item @@contact__active">
+                            <a class="nav-link" href="{{route('shop')}}">Shop</a>
+                        </li>
+                        <li class="nav-item @@contact__active">
                             <a class="nav-link" href="{{ route('about') }}">About Us</a>
                         </li>
                         <li class="nav-item @@contact__active active">
@@ -116,7 +119,7 @@ Author URL: http://w3layouts.com
                         <div class="text-right">
                             <button class="btn btn-style btn-primary" id="submitButton">Submit</button>
                         </div>
-                
+
                         <div id="loader" class="spinner-grow" style="width: 3rem; height: 3rem; display: none;" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>

@@ -16,6 +16,7 @@ Author URL: http://w3layouts.com
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Template CSS -->
     <link rel="stylesheet" href="website/assets/css/style-starter.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     <!-- header -->
@@ -41,10 +42,10 @@ Author URL: http://w3layouts.com
                                 <a class="nav-link" href="{{route('home')}}">Home</a>
                             </li>
 
-                            <li class="nav-item @@contact__active active">
+                            <li class="nav-item @@contact__active">
                                 <a class="nav-link" href="{{route('event_post')}}">Event</a>
                             </li>
-                            <li class="nav-item @@contact__active ">
+                            <li class="nav-item @@contact__active active">
                                 <a class="nav-link" href="{{route('shop')}}">Shop</a>
                             </li>
                             <li class="nav-item @@contact__active">
@@ -83,6 +84,81 @@ Author URL: http://w3layouts.com
     <!-- //homeblock1-->
 
 
+    <div class="w3l-homeblock2 py-5">
+        <div class="container py-lg-5 py-md-4">
+            <!-- block -->
+            <div class="left-right">
+                <h3 class="section-title-left mb-sm-4 mb-2"> Entrepreneur</h3>
+                <a href="fashiom.html" class="more btn btn-small mb-sm-0 mb-4"></a>
+            </div>
+            <div class="row">
+                @foreach($entrepreneurUsers as $entrepreneurUser)
+                @if($entrepreneurUser->entrepreneur_status == 1)
+
+                <div class=" col-lg-4 col-md-6 item">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="#blog-single.html">
+                                <img class="card-img-bottom d-block radius-image-full" src="images/enterpreneur_images/{{ $entrepreneurUser->picture }}" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="" class="blog-desc"> {{ $entrepreneurUser->ownerName }}
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="images/enterpreneur_images/{{ $entrepreneurUser->picture }}" alt="" class="img-fluid rounded-circle" />
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a class="link-underline-light" href="">{{ $entrepreneurUser->shopName }}</a> </a>
+                                    </li>
+                                    <li>
+                                        <a class="link-underline-light" href="">{{ $entrepreneurUser->location }}</a> </a>
+                                    </li>
+                                    <li>
+                                        <a class="link-underline-light" href="">{{ $entrepreneurUser->category }}</a> </a>
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> {{ $entrepreneurUser->created_at }} </span>. <span class="meta-value ml-2"></span>
+
+                                        <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn1 btn btn-primary m-2" data-bs-toggle="modal">
+                                           View
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn2 btn btn-success " data-bs-toggle="modal">
+                                    Opening
+                                </button>
+
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn3 btn btn-warning" data-bs-toggle="modal">
+                                 Products
+                                </button>
+
+                                <button type="button" value="{{ $entrepreneurUser->businessReNo}}" class="editbtn4 btn btn-info" data-bs-toggle="modal">
+                                    Banner
+                                </button>
+                         </div>
+                        </div>
+                    </div>
+                </div>
+
+                @else
+                <p>No record found</p>
+                @endif
+                @endforeach
+
+            </div>
+            <div class="left-right mt-4">
+                <h3 class="section-title-left mb-sm-4 mb-2"></h3>
+                 {{$entrepreneurUsers->links('pagination::bootstrap-4')  }}
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
 
     <div class="w3l-homeblock2 w3l-homeblock5 py-5">
         <div class="container py-lg-5 py-md-4">
@@ -126,7 +202,6 @@ Author URL: http://w3layouts.com
                 <p>No record found</p>
                 @endif
                 @endforeach
-
                 <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -134,7 +209,8 @@ Author URL: http://w3layouts.com
                                 <h5 class="modal-title" id="exampleModalLabel">Event</h5>
                             </div>
                             <div class="modal-body">
-                                <div class="text-center border border-warning-subtle">
+
+                                <div class="text-center">
                                     <p class="d-inline">Date: <h6 class="d-inline" id="eventCreated_at"></h6>
                                     </p>
                                     <p class="d-inline">Title: <h6 class="d-inline" id="title"></h6>
@@ -158,34 +234,102 @@ Author URL: http://w3layouts.com
                         </div>
                     </div>
                 </div>
+                <!--entrepreneur Modal -->
+                <div class="modal fade" id="entrepreneurModal" tabindex="-1" aria-labelledby="entrepreneurModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="entrepreneurModalLabel">Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-center">
+                                    <p class="d-inline">Date: <h6 class="d-inline" id="created_at"></h6>
+                                    </p>
+                                    <p class="d-inline">Owner Name: <h6 class="d-inline" id="ownerName"></h6>
+                                    </p>
+                                    <p class="d-inline">Shop Name: <h6 class="d-inline" id="shopName"></h6>
+                                    </p>
+                                    <p class="d-inline">location: <h6 class="d-inline" id="location"></h6>
+                                    </p>
+                                    <p class="d-inline">Category: <h6 class="d-inline" id="category"></h6>
+                                    </p>
+                                    <p class="d-inline">Phone No: <h6 class="d-inline" id="phoneNo"></h6>
+                                    </p>
+                                    <p class="d-inline">Email: <h6 class="d-inline" id="email"></h6>
+                                    </p>
+                                    <p class="d-inline">Image: <h6 class="d-inline" id="picture"></h6>
+                                    </p>
 
-                <script>
-                    $(document).ready(function() {
-                        $(document).on('click', '.editbtn', function() {
-                            var id = $(this).val();
-                            $('#editEventModal').modal('show');
-                            console.log('Edit button clicked. ID:', id);
-                            $.ajax({
-                                url: '/editEvent/' + id
-                                , method: 'get'
-                                , success: function(response) {
-                                    console.log('AJAX response:', response);
-                                    $("#eventCreated_at").text(response.created_at);
-                                    $("#title").text(response.title);
-                                    $("#subTitle").text(response.subTitle);
-                                    $("#author").text(response.author);
-                                    $("#description").text(response.description);
-                                    $("#eventCategory").text(response.category);
-                                    $("#image").html(
-                                        `<img src="storage/images/admin_images/${response.image}" width="100" class="img-fluid img-thumbnail">`);
+                                </div>
+                            </div>
 
-                                }
-                            });
-                        });
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--productModal Modal -->
+                <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="productModalLabel"> Product Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="products"></div> {{--this is come from ajax for loop all record --}}
 
-                    });
+                            </div>
 
-                </script>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--timeslotModal Modal -->
+                <div class="modal fade" id="timeslotModal" tabindex="-1" aria-labelledby="timeslotModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="timeslotModalLabel"> Timeslot Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="timeslots"></div> {{--this is come from ajax for loop all record --}}
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--bannerModal Modal -->
+                <div class="modal fade" id="bannerModal" tabindex="-1" aria-labelledby="bannerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="bannerModalLabel"> Product Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="banners"></div> {{--this is come from ajax for loop all record --}}
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="left-right mt-4">
+                    <h3 class="section-title-left mb-sm-4 mb-2 "></h3>
+                    {{$events->links('pagination::bootstrap-4')  }}
+                </div>
 
             </div>
         </div>
@@ -334,5 +478,6 @@ Author URL: http://w3layouts.com
 
 <!-- Template Javascript -->
 <script src="website/website/assets/js/main.js"></script>
+@include('website.home_ajax');
 </body>
 </html>

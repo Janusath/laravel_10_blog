@@ -42,6 +42,7 @@ Route::get('/home',[WebsiteController::class,'home'])->name('home');
 Route::get('/event_post',[WebsiteController::class,'event'])->name('event_post');
 Route::get('/contact',[WebsiteController::class,'contact'])->name('contact');
 Route::get('/about_us',[WebsiteController::class,'about'])->name('about');
+Route::get('/shop',[WebsiteController::class,'shop'])->name('shop');
 Route::get('editEvent/{id}', [WebsiteController::class, 'edit']);
 Route::get('businessReNoEditEntrepreneur/{businessReNo}', [WebsiteController::class, 'edit1']);
 Route::get('businessReNoProduction/{businessReNo}', [WebsiteController::class, 'edit2']);
